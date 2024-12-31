@@ -1,0 +1,29 @@
+name = "Conspire"
+uuid = "e166284d-f01f-4403-abd1-910b06ed061e"
+authors = ["Michael R. Buche <dev@mrbuche.com>"]
+version = "0.1.0"
+
+[deps]
+DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
+
+[compat]
+Aqua = "0"
+DocStringExtensions = "0.9"
+Documenter = "1"
+JET = "0"
+JuliaFormatter = "1"
+LinearAlgebra = "1"
+Test = "1"
+julia = "1"
+
+[extras]
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+JET = "c3a54625-cd67-489e-a8e7-0a5a0ff4e31b"
+JuliaFormatter = "98e50ef6-434e-11e9-1051-2b60c6c9e899"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+docs = ["Documenter", "DocStringExtensions"]
+test = ["Aqua", "JET", "JuliaFormatter", "LinearAlgebra", "Test"]

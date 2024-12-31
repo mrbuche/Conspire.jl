@@ -1,0 +1,7 @@
+include("hyperelastic/arruda_boyce.jl")
+include("hyperelastic/fung.jl")
+include("hyperelastic/gent.jl")
+include("hyperelastic/mooney_rivlin.jl")
+include("hyperelastic/neo_hookean.jl")
+include("hyperelastic/saint_venant_kirchoff.jl")
+include("hyperelastic/yeoh.jl")

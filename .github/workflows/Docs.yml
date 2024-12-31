@@ -1,0 +1,63 @@
+name: Docs
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  release:
+    types: [ "published" ]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: "Docs"
+  cancel-in-progress: true
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get last release
+        id: last_release
+        uses: InsonusK/get-latest-release@v1.1.0
+        with:
+          myToken: ${{ github.token }}
+          view_top: 1
+      - name: Julia
+        uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.9'
+      - name: Dependencies
+        run: julia --color=yes -e 'using Pkg; Pkg.add(["DocStringExtensions", "Documenter"])'
+      - name: Checkout stable
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.last_release.outputs.tag_name }}
+      - name: Stable
+        run: |
+          julia --color=yes -e 'using Pkg; Pkg.develop(path="."); Pkg.build("Conspire")'
+          julia --color=yes docs/make.jl
+          mkdir -p ../_site/stable/
+          cp -r docs/build/* ../_site/stable/
+      - name: Checkout latest
+        uses: actions/checkout@v4
+      - name: Latest
+        run: |
+          julia --color=yes -e 'using Pkg; Pkg.develop(path="."); Pkg.build("Conspire")'
+          julia --color=yes docs/make.jl
+          mkdir -p ../_site/latest/
+          cp -r docs/build/* ../_site/latest/
+      - name: Upload
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ../_site/
+  Deploy:
+    if: github.event_name != 'pull_request'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: Build
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

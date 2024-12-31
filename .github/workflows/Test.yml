@@ -1,0 +1,21 @@
+name: Test
+on:
+  pull_request:
+    branches: [ main ]
+jobs:
+  Julia:
+    strategy:
+      fail-fast: false
+      matrix:
+        julia-version: [1.10.0, 1.11.0]
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Julia
+        uses: julia-actions/setup-julia@v2
+        with:
+          version: ${{ matrix.julia-version }}
+      - name: Test
+        run: julia --color=yes -e 'using Pkg; Pkg.develop(path="."); Pkg.build("Conspire"); Pkg.test("Conspire")'

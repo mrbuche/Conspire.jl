@@ -1,0 +1,21 @@
+[package]
+authors = ["Michael R. Buche <dev@mrbuche.com>"]
+categories = ["mathematics", "science"]
+description = "c o n s p i r e"
+edition = "2021"
+keywords = ["conspire", "mrbuche"]
+license = "GPL-3.0"
+name = "conspire_wrapper"
+version = "0.1.0"
+
+[dependencies]
+conspire = { features = ["constitutive"], git = "https://github.com/mrbuche/conspire.rs.git", rev = "a0ea82466d9e1b6cb4711ef121dde926673dc50f" }
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+codegen-units = 1
+lto = true
+panic = "abort"
+strip = "symbols"
