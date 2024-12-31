@@ -1,8 +1,20 @@
 using DocStringExtensions
 
 """
+The Saint Venant-Kirchoff hyperelastic constitutive model.
+
 **Parameters**
-$(FIELDS)
+- The bulk modulus ``\\kappa``.
+- The shear modulus ``\\mu``.
+
+**External variables**
+- The deformation gradient ``\\mathbf{F}``.
+
+**Internal variables**
+- None.
+
+**Notes**
+- The Green-Saint Venant strain measure is given by ``\\mathbf{E}=\\tfrac{1}{2}(\\mathbf{C}-\\mathbf{1})``.
 """
 struct SaintVenantKirchoff
     κ::Real
@@ -74,6 +86,9 @@ end
 
 """
 $(TYPEDSIGNATURES)
+```math
+\\mathbf{S}(\\mathbf{F}) = 2\\mu\\mathbf{E}' + \\kappa\\,\\mathrm{tr}(\\mathbf{E})\\mathbf{1}
+```
 """
 function second_piola_kirchoff_stress(model::SaintVenantKirchoff, F)
     raw = ccall(
@@ -89,6 +104,9 @@ end
 
 """
 $(TYPEDSIGNATURES)
+```math
+\\mathcal{G}_{IJkL}(\\mathbf{F}) = \\mu\\,\\delta_{JL}F_{kI} + \\mu\\,\\delta_{IL}F_{kJ} + \\left(\\kappa - \\frac{2}{3}\\,\\mu\\right)\\delta_{IJ}F_{kL}
+```
 """
 function second_piola_kirchoff_tangent_stiffness(model::SaintVenantKirchoff, F)
     raw = ccall(
@@ -107,6 +125,9 @@ end
 
 """
 $(TYPEDSIGNATURES)
+```math
+a(\\mathbf{F}) = \\mu\\,\\mathrm{tr}(\\mathbf{E}^2) + \\frac{1}{2}\\left(\\kappa - \\frac{2}{3}\\,\\mu\\right)\\mathrm{tr}(\\mathbf{E})^2
+```
 """
 function helmholtz_free_energy_density(model::SaintVenantKirchoff, F)
     return ccall(
