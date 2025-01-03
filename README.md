@@ -6,7 +6,3 @@
 [![release](https://img.shields.io/github/v/release/mrbuche/Conspire.jl?color=blue)](https://github.com/mrbuche/Conspire.jl)
 
 The Julia interface to [conspire](https://mrbuche.github.io/conspire).
-
-```julia
-pkg> add Conspire
-```
