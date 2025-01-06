@@ -39,6 +39,7 @@ jobs:
           julia --color=yes docs/make.jl
           mkdir -p ../_site/stable/
           cp -r docs/build/* ../_site/stable/
+          cp docs/index.html ../_site/
       - name: Checkout latest
         uses: actions/checkout@v4
       - name: Latest
