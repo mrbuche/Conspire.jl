@@ -47,8 +47,11 @@ jobs:
           julia --color=yes docs/make.jl
           mkdir -p ../_site/latest/
           cp -r docs/build/* ../_site/latest/
+      - name: Site
+        run: |
           cp docs/index.html ../_site/
           cp docs/favicon.ico ../_site/
+          grep -rl "</title>" ../_site/ | xargs sed -i 's@</title>@</title><link rel="icon" type="image/x-icon" href="/Conspire.jl/favicon.ico">@'
       - name: Upload
         uses: actions/upload-pages-artifact@v3
         with:
