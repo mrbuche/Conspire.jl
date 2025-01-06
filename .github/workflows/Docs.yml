@@ -39,7 +39,6 @@ jobs:
           julia --color=yes docs/make.jl
           mkdir -p ../_site/stable/
           cp -r docs/build/* ../_site/stable/
-          cp docs/index.html ../_site/
       - name: Checkout latest
         uses: actions/checkout@v4
       - name: Latest
@@ -48,6 +47,7 @@ jobs:
           julia --color=yes docs/make.jl
           mkdir -p ../_site/latest/
           cp -r docs/build/* ../_site/latest/
+          cp docs/index.html ../_site/
       - name: Upload
         uses: actions/upload-pages-artifact@v3
         with:
