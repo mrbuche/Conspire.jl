@@ -29,7 +29,7 @@ jobs:
           version: '1.9'
       - name: Dependencies
         run: julia --color=yes -e 'using Pkg; Pkg.add(["DocStringExtensions", "Documenter"])'
-      - name: Checkout stable
+      - name: Checkout (stable)
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.last_release.outputs.tag_name }}
@@ -39,7 +39,7 @@ jobs:
           julia --color=yes docs/make.jl
           mkdir -p ../_site/stable/
           cp -r docs/build/* ../_site/stable/
-      - name: Checkout latest
+      - name: Checkout (latest)
         uses: actions/checkout@v4
       - name: Latest
         run: |
