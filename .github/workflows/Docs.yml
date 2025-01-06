@@ -48,6 +48,7 @@ jobs:
           mkdir -p ../_site/latest/
           cp -r docs/build/* ../_site/latest/
           cp docs/index.html ../_site/
+          cp docs/favicon.ico ../_site/
       - name: Upload
         uses: actions/upload-pages-artifact@v3
         with:
