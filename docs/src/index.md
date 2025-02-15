@@ -9,4 +9,5 @@ The Julia interface to [conspire](https://mrbuche.github.io/conspire).
 
 ---
 
+* [Math](math.md) -- Mathematics library.
 * [Constitutive](constitutive.md) -- Constitutive model library.

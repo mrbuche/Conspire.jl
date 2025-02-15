@@ -1,5 +1,7 @@
 # Solid
 
+Solid constitutive models.
+
 * [Elastic](solid/elastic.md) -- Elastic constitutive models.
 * [Hyperelastic](solid/hyperelastic.md) -- Hyperelastic constitutive models.
 

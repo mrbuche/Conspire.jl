@@ -23,7 +23,7 @@ use conspire::
             }
         }
     },
-    math::TensorArray,
+    math::{TensorArray, special},
     mechanics::
     {
         DeformationGradient,
@@ -31,6 +31,16 @@ use conspire::
     }
 };
 use std::slice::from_raw_parts;
+
+#[no_mangle]
+unsafe extern fn langevin(x: Scalar) -> Scalar {
+    special::langevin(x)
+}
+
+#[no_mangle]
+unsafe extern fn inverse_langevin(y: Scalar) -> Scalar {
+    special::inverse_langevin(y)
+}
 
 #[no_mangle]
 unsafe extern fn almansi_hamel_cauchy_stress(

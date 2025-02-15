@@ -3,6 +3,10 @@ module Conspire
 const CONSPIRE_WRAPPER = string(dirname(@__FILE__), "/../deps/conspire_wrapper/")
 const CONSPIRE_WRAPPER_LIB = string(CONSPIRE_WRAPPER, "target/release/libconspire_wrapper")
 
+include("math.jl")
+
+export langevin, inverse_langevin
+
 include("constitutive.jl")
 
 export cauchy_stress, cauchy_tangent_stiffness
