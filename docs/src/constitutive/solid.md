@@ -16,17 +16,17 @@ cauchy_tangent_stiffness
 ```
 
 ```@docs
-first_piola_kirchoff_stress
+first_piola_kirchhoff_stress
 ```
 
 ```@docs
-first_piola_kirchoff_tangent_stiffness
+first_piola_kirchhoff_tangent_stiffness
 ```
 
 ```@docs
-second_piola_kirchoff_stress
+second_piola_kirchhoff_stress
 ```
 
 ```@docs
-second_piola_kirchoff_tangent_stiffness
+second_piola_kirchhoff_tangent_stiffness
 ```

@@ -9,7 +9,7 @@ name = "conspire_wrapper"
 version = "0.1.0"
 
 [dependencies]
-conspire = { features = ["constitutive"], git = "https://github.com/mrbuche/conspire.rs.git", rev = "31545f6c2e96330ef8d0885817bcb8dd93f1652e" }
+conspire = { features = ["constitutive"], git = "https://github.com/mrbuche/conspire.rs.git", rev = "f19dcf64890cb215134e4d610b753e05bb6bf27a" }
 
 [lib]
 crate-type = ["cdylib"]

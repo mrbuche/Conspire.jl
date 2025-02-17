@@ -15,17 +15,17 @@ cauchy_tangent_stiffness(model::AlmansiHamel, F)
 ```
 
 ```@docs
-first_piola_kirchoff_stress(model::AlmansiHamel, F)
+first_piola_kirchhoff_stress(model::AlmansiHamel, F)
 ```
 
 ```@docs
-first_piola_kirchoff_tangent_stiffness(model::AlmansiHamel, F)
+first_piola_kirchhoff_tangent_stiffness(model::AlmansiHamel, F)
 ```
 
 ```@docs
-second_piola_kirchoff_stress(model::AlmansiHamel, F)
+second_piola_kirchhoff_stress(model::AlmansiHamel, F)
 ```
 
 ```@docs
-second_piola_kirchoff_tangent_stiffness(model::AlmansiHamel, F)
+second_piola_kirchhoff_tangent_stiffness(model::AlmansiHamel, F)
 ```

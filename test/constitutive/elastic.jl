@@ -1,7 +1,7 @@
 function test_elastic(model)
     σ(F) = cauchy_stress(model, F)
-    P(F) = first_piola_kirchoff_stress(model, F)
-    S(F) = second_piola_kirchoff_stress(model, F)
+    P(F) = first_piola_kirchhoff_stress(model, F)
+    S(F) = second_piola_kirchhoff_stress(model, F)
     @test σ(I) == Zero
     @test P(I) == Zero
     @test S(I) == Zero
@@ -26,7 +26,7 @@ function test_elastic(model)
             end
         end
     end
-    C = first_piola_kirchoff_tangent_stiffness(model, F)
+    C = first_piola_kirchhoff_tangent_stiffness(model, F)
     for i = 1:3
         for j = 1:3
             for k = 1:3
@@ -41,7 +41,7 @@ function test_elastic(model)
             end
         end
     end
-    G = second_piola_kirchoff_tangent_stiffness(model, F)
+    G = second_piola_kirchhoff_tangent_stiffness(model, F)
     for i = 1:3
         for j = 1:3
             for k = 1:3

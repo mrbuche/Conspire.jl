@@ -1,6 +1,6 @@
 function test_hyperelastic(model)
     a(F) = helmholtz_free_energy_density(model, F)
-    P(F) = first_piola_kirchoff_stress(model, F)
+    P(F) = first_piola_kirchhoff_stress(model, F)
     @test a(I) == 0.0
     for (i, Pᵢ) in enumerate(eachrow(P(I)))
         for (j, Pᵢⱼ) in enumerate(Pᵢ)
@@ -23,7 +23,7 @@ function test_hyperelastic(model)
             @test abs(Pᵢⱼ - da / ϵ) < ϵ
         end
     end
-    C = first_piola_kirchoff_tangent_stiffness(model, F)
+    C = first_piola_kirchhoff_tangent_stiffness(model, F)
     for i = 1:3
         for j = 1:3
             for k = 1:3
@@ -65,10 +65,10 @@ end
     test_hyperelastic(neo_hookean_model)
 end
 
-@testset "Saint Venant-Kirchoff model" begin
-    saint_venant_kirchoff_model = SaintVenantKirchoff(κ, μ)
-    test_elastic(saint_venant_kirchoff_model)
-    test_hyperelastic(saint_venant_kirchoff_model)
+@testset "Saint Venant-Kirchhoff model" begin
+    saint_venant_kirchhoff_model = SaintVenantKirchhoff(κ, μ)
+    test_elastic(saint_venant_kirchhoff_model)
+    test_hyperelastic(saint_venant_kirchhoff_model)
 end
 
 @testset "Yeoh model" begin

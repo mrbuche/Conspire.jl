@@ -59,9 +59,9 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function first_piola_kirchoff_stress(model::NeoHookean, F)
+function first_piola_kirchhoff_stress(model::NeoHookean, F)
     raw = ccall(
-        (:neo_hookean_first_piola_kirchoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:neo_hookean_first_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -74,9 +74,9 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function first_piola_kirchoff_tangent_stiffness(model::NeoHookean, F)
+function first_piola_kirchhoff_tangent_stiffness(model::NeoHookean, F)
     raw = ccall(
-        (:neo_hookean_first_piola_kirchoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:neo_hookean_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -89,9 +89,9 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function second_piola_kirchoff_stress(model::NeoHookean, F)
+function second_piola_kirchhoff_stress(model::NeoHookean, F)
     raw = ccall(
-        (:neo_hookean_second_piola_kirchoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:neo_hookean_second_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -104,9 +104,9 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function second_piola_kirchoff_tangent_stiffness(model::NeoHookean, F)
+function second_piola_kirchhoff_tangent_stiffness(model::NeoHookean, F)
     raw = ccall(
-        (:neo_hookean_second_piola_kirchoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:neo_hookean_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,

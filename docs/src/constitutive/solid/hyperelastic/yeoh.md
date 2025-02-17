@@ -15,19 +15,19 @@ cauchy_tangent_stiffness(model::Yeoh, F)
 ```
 
 ```@docs
-first_piola_kirchoff_stress(model::Yeoh, F)
+first_piola_kirchhoff_stress(model::Yeoh, F)
 ```
 
 ```@docs
-first_piola_kirchoff_tangent_stiffness(model::Yeoh, F)
+first_piola_kirchhoff_tangent_stiffness(model::Yeoh, F)
 ```
 
 ```@docs
-second_piola_kirchoff_stress(model::Yeoh, F)
+second_piola_kirchhoff_stress(model::Yeoh, F)
 ```
 
 ```@docs
-second_piola_kirchoff_tangent_stiffness(model::Yeoh, F)
+second_piola_kirchhoff_tangent_stiffness(model::Yeoh, F)
 ```
 
 ```@docs
