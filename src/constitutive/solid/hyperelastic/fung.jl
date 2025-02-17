@@ -70,9 +70,9 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function first_piola_kirchoff_stress(model::Fung, F)
+function first_piola_kirchhoff_stress(model::Fung, F)
     raw = ccall(
-        (:fung_first_piola_kirchoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:fung_first_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -87,9 +87,9 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function first_piola_kirchoff_tangent_stiffness(model::Fung, F)
+function first_piola_kirchhoff_tangent_stiffness(model::Fung, F)
     raw = ccall(
-        (:fung_first_piola_kirchoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:fung_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -104,9 +104,9 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function second_piola_kirchoff_stress(model::Fung, F)
+function second_piola_kirchhoff_stress(model::Fung, F)
     raw = ccall(
-        (:fung_second_piola_kirchoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:fung_second_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -121,9 +121,9 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function second_piola_kirchoff_tangent_stiffness(model::Fung, F)
+function second_piola_kirchhoff_tangent_stiffness(model::Fung, F)
     raw = ccall(
-        (:fung_second_piola_kirchoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:fung_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Float64, Ptr{Float64}),
         model.κ,

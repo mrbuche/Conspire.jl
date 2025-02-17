@@ -10,7 +10,7 @@ Satisfying the second law of thermodynamics (here, equivalent to extremized or z
 ```math
 \mathbf{P} = \frac{\partial a}{\partial\mathbf{F}}
 ```
-Consequently, the tangent stiffness associated with the first Piola-Kirchoff stress is symmetric for hyperelastic constitutive models.
+Consequently, the tangent stiffness associated with the first Piola-Kirchhoff stress is symmetric for hyperelastic constitutive models.
 
 ```math
 \mathcal{C}_{iJkL} = \mathcal{C}_{kLiJ}
@@ -21,7 +21,7 @@ Consequently, the tangent stiffness associated with the first Piola-Kirchoff str
 * [Gent](hyperelastic/gent.md) -- The Gent hyperelastic constitutive model.
 * [Mooney-Rivlin](hyperelastic/mooney_rivlin.md) -- The Mooney-Rivlin hyperelastic constitutive model.
 * [Neo-Hookean](hyperelastic/neo_hookean.md) -- The Neo-Hookean hyperelastic constitutive model.
-* [Saint Venant-Kirchoff](hyperelastic/saint_venant_kirchoff.md) - The Saint Venant-Kirchoff hyperelastic constitutive model.
+* [Saint Venant-Kirchhoff](hyperelastic/saint_venant_kirchhoff.md) - The Saint Venant-Kirchhoff hyperelastic constitutive model.
 * [Yeoh](hyperelastic/yeoh.md) -- The Yeoh hyperelastic constitutive model.
 
 ## Functions

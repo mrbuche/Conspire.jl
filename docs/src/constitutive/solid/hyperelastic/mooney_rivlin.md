@@ -15,19 +15,19 @@ cauchy_tangent_stiffness(model::MooneyRivlin, F)
 ```
 
 ```@docs
-first_piola_kirchoff_stress(model::MooneyRivlin, F)
+first_piola_kirchhoff_stress(model::MooneyRivlin, F)
 ```
 
 ```@docs
-first_piola_kirchoff_tangent_stiffness(model::MooneyRivlin, F)
+first_piola_kirchhoff_tangent_stiffness(model::MooneyRivlin, F)
 ```
 
 ```@docs
-second_piola_kirchoff_stress(model::MooneyRivlin, F)
+second_piola_kirchhoff_stress(model::MooneyRivlin, F)
 ```
 
 ```@docs
-second_piola_kirchoff_tangent_stiffness(model::MooneyRivlin, F)
+second_piola_kirchhoff_tangent_stiffness(model::MooneyRivlin, F)
 ```
 
 ```@docs

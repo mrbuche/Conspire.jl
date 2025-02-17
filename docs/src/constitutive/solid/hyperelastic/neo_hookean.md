@@ -15,19 +15,19 @@ cauchy_tangent_stiffness(model::NeoHookean, F)
 ```
 
 ```@docs
-first_piola_kirchoff_stress(model::NeoHookean, F)
+first_piola_kirchhoff_stress(model::NeoHookean, F)
 ```
 
 ```@docs
-first_piola_kirchoff_tangent_stiffness(model::NeoHookean, F)
+first_piola_kirchhoff_tangent_stiffness(model::NeoHookean, F)
 ```
 
 ```@docs
-second_piola_kirchoff_stress(model::NeoHookean, F)
+second_piola_kirchhoff_stress(model::NeoHookean, F)
 ```
 
 ```@docs
-second_piola_kirchoff_tangent_stiffness(model::NeoHookean, F)
+second_piola_kirchhoff_tangent_stiffness(model::NeoHookean, F)
 ```
 
 ```@docs
