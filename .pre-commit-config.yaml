@@ -10,5 +10,6 @@ repos:
     rev: v1.1.0
     hooks:
     -   id: clippy
-        args: ['--', '-D',  'warnings']
-    -   id: fmt
+        args: ['--manifest-path', 'deps/conspire_wrapper/Cargo.toml', '--', '-D',  'warnings']
+    # -   id: fmt
+    #     args: ['--manifest-path', 'deps/conspire_wrapper/Cargo.toml']
