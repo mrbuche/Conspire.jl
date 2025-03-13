@@ -5,6 +5,10 @@ Special functions.
 ## Functions
 
 ```@docs
+lambert_w
+```
+
+```@docs
 langevin
 ```
 

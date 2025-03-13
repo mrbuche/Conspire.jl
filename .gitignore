@@ -1,5 +1,4 @@
 deps/build.log
-deps/conspire_wrapper/Cargo.lock
 deps/conspire_wrapper/target/
 docs/build/
 .vscode
