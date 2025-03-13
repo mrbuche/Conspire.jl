@@ -3,6 +3,16 @@ using DocStringExtensions
 """
 $(TYPEDSIGNATURES)
 ```math
+y = W_0(x)
+```
+"""
+function lambert_w(x::Float64)
+    return ccall((:lambert_w, CONSPIRE_WRAPPER_LIB), Float64, (Float64,), x)
+end
+
+"""
+$(TYPEDSIGNATURES)
+```math
 \\mathcal{L}(x) = \\coth(x) - x^{-1}
 ```
 """

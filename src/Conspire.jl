@@ -5,7 +5,7 @@ const CONSPIRE_WRAPPER_LIB = string(CONSPIRE_WRAPPER, "target/release/libconspir
 
 include("math.jl")
 
-export langevin, inverse_langevin
+export lambert_w, langevin, inverse_langevin
 
 include("constitutive.jl")
 
