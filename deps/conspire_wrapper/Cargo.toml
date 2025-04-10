@@ -2,7 +2,7 @@
 authors = ["Michael R. Buche <dev@mrbuche.com>"]
 categories = ["mathematics", "science"]
 description = "c o n s p i r e"
-edition = "2021"
+edition = "2024"
 keywords = ["conspire", "mrbuche"]
 license = "GPL-3.0"
 name = "conspire_wrapper"
