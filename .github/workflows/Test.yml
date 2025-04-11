@@ -25,14 +25,10 @@ jobs:
         with:
           components: clippy, rustfmt
           toolchain: ${{ matrix.toolchain }}
-      - name: Directory
-        run: cd deps/conspire_wrapper/
       - name: Format
-        run: cargo fmt --all -- --check
+        run: cd deps/conspire_wrapper/ && cargo fmt --all -- --check
       - name: Clippy
-        run: cargo clippy --release -- -D warnings
-      - name: Directory
-        run: cd ../../
+        run: cd deps/conspire_wrapper/ && cargo clippy --release -- -D warnings
       - name: Julia
         uses: julia-actions/setup-julia@v2
         with:
