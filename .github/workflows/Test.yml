@@ -1,7 +1,13 @@
 name: Test
+concurrency:
+  cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+env:
+  CARGO_TERM_COLOR: always
 on:
   pull_request:
     branches: [ main ]
+permissions: {}
 jobs:
   Julia:
     strategy:
@@ -9,10 +15,24 @@ jobs:
       matrix:
         julia-version: [1.10.0, 1.11.0]
         os: [macos-latest, ubuntu-latest]
+        toolchain: [beta, nightly, stable]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Toolchain
+        uses: actions-rs/toolchain@88dc2356392166efad76775c878094f4e83ff746
+        with:
+          components: clippy, rustfmt
+          toolchain: ${{ matrix.toolchain }}
+      - name: Directory
+        run: cd deps/conspire_wrapper/
+      - name: Format
+        run: cargo fmt --all -- --check
+      - name: Clippy
+        run: cargo clippy --release -- -D warnings
+      - name: Directory
+        run: cd ../../
       - name: Julia
         uses: julia-actions/setup-julia@v2
         with:
