@@ -14,17 +14,17 @@ use conspire::{
 };
 use std::slice::from_raw_parts;
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn langevin(x: Scalar) -> Scalar {
     special::langevin(x)
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn inverse_langevin(y: Scalar) -> Scalar {
     special::inverse_langevin(y)
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn almansi_hamel_cauchy_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -40,7 +40,7 @@ unsafe extern "C" fn almansi_hamel_cauchy_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn almansi_hamel_cauchy_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -56,7 +56,7 @@ unsafe extern "C" fn almansi_hamel_cauchy_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn almansi_hamel_first_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -72,7 +72,7 @@ unsafe extern "C" fn almansi_hamel_first_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn almansi_hamel_first_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -88,7 +88,7 @@ unsafe extern "C" fn almansi_hamel_first_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn almansi_hamel_second_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -104,7 +104,7 @@ unsafe extern "C" fn almansi_hamel_second_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn almansi_hamel_second_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -120,7 +120,7 @@ unsafe extern "C" fn almansi_hamel_second_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn arruda_boyce_cauchy_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -137,7 +137,7 @@ unsafe extern "C" fn arruda_boyce_cauchy_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn arruda_boyce_cauchy_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -154,7 +154,7 @@ unsafe extern "C" fn arruda_boyce_cauchy_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn arruda_boyce_first_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -171,7 +171,7 @@ unsafe extern "C" fn arruda_boyce_first_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn arruda_boyce_first_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -188,7 +188,7 @@ unsafe extern "C" fn arruda_boyce_first_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn arruda_boyce_second_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -205,7 +205,7 @@ unsafe extern "C" fn arruda_boyce_second_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn arruda_boyce_second_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -222,7 +222,7 @@ unsafe extern "C" fn arruda_boyce_second_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn arruda_boyce_helmholtz_free_energy_density(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -236,7 +236,7 @@ unsafe extern "C" fn arruda_boyce_helmholtz_free_energy_density(
         .unwrap()
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn gent_cauchy_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -253,7 +253,7 @@ unsafe extern "C" fn gent_cauchy_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn gent_cauchy_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -270,7 +270,7 @@ unsafe extern "C" fn gent_cauchy_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn gent_first_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -287,7 +287,7 @@ unsafe extern "C" fn gent_first_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn gent_first_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -304,7 +304,7 @@ unsafe extern "C" fn gent_first_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn gent_second_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -321,7 +321,7 @@ unsafe extern "C" fn gent_second_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn gent_second_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -338,7 +338,7 @@ unsafe extern "C" fn gent_second_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn gent_helmholtz_free_energy_density(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -352,7 +352,7 @@ unsafe extern "C" fn gent_helmholtz_free_energy_density(
         .unwrap()
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn mooney_rivlin_cauchy_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -369,7 +369,7 @@ unsafe extern "C" fn mooney_rivlin_cauchy_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn mooney_rivlin_cauchy_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -386,7 +386,7 @@ unsafe extern "C" fn mooney_rivlin_cauchy_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn mooney_rivlin_first_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -403,7 +403,7 @@ unsafe extern "C" fn mooney_rivlin_first_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn mooney_rivlin_first_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -420,7 +420,7 @@ unsafe extern "C" fn mooney_rivlin_first_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn mooney_rivlin_second_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -437,7 +437,7 @@ unsafe extern "C" fn mooney_rivlin_second_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn mooney_rivlin_second_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -454,7 +454,7 @@ unsafe extern "C" fn mooney_rivlin_second_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn mooney_rivlin_helmholtz_free_energy_density(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -468,7 +468,7 @@ unsafe extern "C" fn mooney_rivlin_helmholtz_free_energy_density(
         .unwrap()
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn neo_hookean_cauchy_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -484,7 +484,7 @@ unsafe extern "C" fn neo_hookean_cauchy_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn neo_hookean_cauchy_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -500,7 +500,7 @@ unsafe extern "C" fn neo_hookean_cauchy_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn neo_hookean_first_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -516,7 +516,7 @@ unsafe extern "C" fn neo_hookean_first_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn neo_hookean_first_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -532,7 +532,7 @@ unsafe extern "C" fn neo_hookean_first_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn neo_hookean_second_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -548,7 +548,7 @@ unsafe extern "C" fn neo_hookean_second_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn neo_hookean_second_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -564,7 +564,7 @@ unsafe extern "C" fn neo_hookean_second_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn neo_hookean_helmholtz_free_energy_density(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -577,7 +577,7 @@ unsafe extern "C" fn neo_hookean_helmholtz_free_energy_density(
         .unwrap()
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn saint_venant_kirchhoff_cauchy_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -593,7 +593,7 @@ unsafe extern "C" fn saint_venant_kirchhoff_cauchy_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn saint_venant_kirchhoff_cauchy_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -609,7 +609,7 @@ unsafe extern "C" fn saint_venant_kirchhoff_cauchy_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn saint_venant_kirchhoff_first_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -625,7 +625,7 @@ unsafe extern "C" fn saint_venant_kirchhoff_first_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn saint_venant_kirchhoff_first_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -641,7 +641,7 @@ unsafe extern "C" fn saint_venant_kirchhoff_first_piola_kirchhoff_tangent_stiffn
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn saint_venant_kirchhoff_second_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -657,7 +657,7 @@ unsafe extern "C" fn saint_venant_kirchhoff_second_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn saint_venant_kirchhoff_second_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -673,7 +673,7 @@ unsafe extern "C" fn saint_venant_kirchhoff_second_piola_kirchhoff_tangent_stiff
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn saint_venant_kirchhoff_helmholtz_free_energy_density(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -686,7 +686,7 @@ unsafe extern "C" fn saint_venant_kirchhoff_helmholtz_free_energy_density(
         .unwrap()
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn fung_cauchy_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -704,7 +704,7 @@ unsafe extern "C" fn fung_cauchy_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn fung_cauchy_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -722,7 +722,7 @@ unsafe extern "C" fn fung_cauchy_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn fung_first_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -740,7 +740,7 @@ unsafe extern "C" fn fung_first_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn fung_first_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -758,7 +758,7 @@ unsafe extern "C" fn fung_first_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn fung_second_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -776,7 +776,7 @@ unsafe extern "C" fn fung_second_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn fung_second_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -794,7 +794,7 @@ unsafe extern "C" fn fung_second_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn fung_helmholtz_free_energy_density(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -809,7 +809,7 @@ unsafe extern "C" fn fung_helmholtz_free_energy_density(
         .unwrap()
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn yeoh_cauchy_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -834,7 +834,7 @@ unsafe extern "C" fn yeoh_cauchy_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn yeoh_cauchy_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -859,7 +859,7 @@ unsafe extern "C" fn yeoh_cauchy_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn yeoh_first_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -884,7 +884,7 @@ unsafe extern "C" fn yeoh_first_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn yeoh_first_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -909,7 +909,7 @@ unsafe extern "C" fn yeoh_first_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn yeoh_second_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -934,7 +934,7 @@ unsafe extern "C" fn yeoh_second_piola_kirchhoff_stress(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn yeoh_second_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
@@ -959,7 +959,7 @@ unsafe extern "C" fn yeoh_second_piola_kirchhoff_tangent_stiffness(
     ))
 }
 
-#[no_mangle]
+#[unsafe(no_mangle)]
 unsafe extern "C" fn yeoh_helmholtz_free_energy_density(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
