@@ -70,9 +70,3 @@ end
     test_elastic(saint_venant_kirchhoff_model)
     test_hyperelastic(saint_venant_kirchhoff_model)
 end
-
-@testset "Yeoh model" begin
-    yeoh_model = Yeoh(κ, μ, μₑ)
-    test_elastic(yeoh_model)
-    test_hyperelastic(yeoh_model)
-end

@@ -22,7 +22,6 @@ Consequently, the tangent stiffness associated with the first Piola-Kirchhoff st
 * [Mooney-Rivlin](hyperelastic/mooney_rivlin.md) -- The Mooney-Rivlin hyperelastic constitutive model.
 * [Neo-Hookean](hyperelastic/neo_hookean.md) -- The Neo-Hookean hyperelastic constitutive model.
 * [Saint Venant-Kirchhoff](hyperelastic/saint_venant_kirchhoff.md) - The Saint Venant-Kirchhoff hyperelastic constitutive model.
-* [Yeoh](hyperelastic/yeoh.md) -- The Yeoh hyperelastic constitutive model.
 
 ## Functions
 

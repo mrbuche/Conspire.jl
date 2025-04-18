@@ -5,7 +5,7 @@ version = 4
 [[package]]
 name = "conspire"
 version = "0.5.6"
-source = "git+https://github.com/mrbuche/conspire.rs.git?rev=d0c00f309f59385a03b136d2712a6a20f263ad94#d0c00f309f59385a03b136d2712a6a20f263ad94"
+source = "git+https://github.com/mrbuche/conspire.rs.git?rev=e43d206b62d1f27b61c30344080ee17c608f8142#e43d206b62d1f27b61c30344080ee17c608f8142"
 
 [[package]]
 name = "conspire_wrapper"
