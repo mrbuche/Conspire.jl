@@ -9,7 +9,7 @@ const MODEL = replace(
         "\$\`" => "\`\`",
         "\`\$" => "\`\`",
     ),
-    "[Neo-Hookean model](NeoHookean)" => "[\`Neo-Hookean\`](@ref) model",
+    "[Neo-Hookean model](NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
 )
 const CAUCHYSTRESS = read(
     "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_stress.md",
