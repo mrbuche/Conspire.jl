@@ -1,5 +1,7 @@
 using DocStringExtensions
 
+export ArrudaBoyce
+
 const MODEL = replace(
     replace(
         read(
@@ -9,7 +11,7 @@ const MODEL = replace(
         "\$\`" => "\`\`",
         "\`\$" => "\`\`",
     ),
-    "[Neo-Hookean model](NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
+    "[Neo-Hookean model](super::NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
 )
 const CAUCHYSTRESS = read(
     "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_stress.md",
