@@ -1,11 +1,8 @@
 # Elastic
 
-Elastic constitutive models cannot be defined by a Helmholtz free energy density but still depend on only the deformation gradient.
-These constitutive models are therefore defined by a relation for some stress measure as a function of the deformation gradient.
-Consequently, the tangent stiffness associated with the first Piola-Kirchhoff stress is not symmetric for these constitutive models.
-
-```math
-\mathcal{C}_{iJkL} \neq \mathcal{C}_{kLiJ}
+```@eval
+using Markdown
+Markdown.parse_file(joinpath("..", "..", "..", "..", "conspire.rs", "src", "constitutive", "solid", "elastic", "doc.md"))
 ```
 
 * [Almansi-Hamel](elastic/almansi_hamel.md) -- The Almansi-Hamel elastic constitutive model.
