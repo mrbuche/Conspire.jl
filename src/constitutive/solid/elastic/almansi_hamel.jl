@@ -1,27 +1,21 @@
 using DocStringExtensions
 
-const MODEL = replace(
-    replace(
-        read(
-            "conspire.rs/src/constitutive/solid/elastic/almansi_hamel/model.md",
-            String,
-        ),
-        "\$\`" => "\`\`",
-        "\`\$" => "\`\`",
-    ),
-    "[Neo-Hookean model](super::NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
+const ALMANSIHAMELMODEL = replace(
+    read("conspire.rs/src/constitutive/solid/elastic/almansi_hamel/model.md", String),
+    "\$\`" => "\`\`",
+    "\`\$" => "\`\`",
 )
-const CAUCHYSTRESS = read(
+const ALMANSIHAMELCAUCHYSTRESS = read(
     "conspire.rs/src/constitutive/solid/elastic/almansi_hamel/cauchy_stress.md",
     String,
 )
-const CAUCHYTANGENTSTIFFNESS = read(
+const ALMANSIHAMELCAUCHYTANGENTSTIFFNESS = read(
     "conspire.rs/src/constitutive/solid/elastic/almansi_hamel/cauchy_tangent_stiffness.md",
     String,
 )
 
 """
-$(MODEL)
+$(ALMANSIHAMELMODEL)
 """
 struct AlmansiHamel
     κ::Real
@@ -30,7 +24,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(CAUCHYSTRESS)
+$(ALMANSIHAMELCAUCHYSTRESS)
 """
 function cauchy_stress(model::AlmansiHamel, F)
     raw = ccall(
@@ -46,7 +40,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(CAUCHYTANGENTSTIFFNESS)
+$(ALMANSIHAMELCAUCHYTANGENTSTIFFNESS)
 """
 function cauchy_tangent_stiffness(model::AlmansiHamel, F)
     raw = ccall(

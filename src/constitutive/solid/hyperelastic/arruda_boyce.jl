@@ -1,33 +1,26 @@
 using DocStringExtensions
 
-export ArrudaBoyce
-
-const MODEL = replace(
-    replace(
-        read(
-            "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/model.md",
-            String,
-        ),
-        "\$\`" => "\`\`",
-        "\`\$" => "\`\`",
-    ),
+const ARRUDABOYCEMODEL = replace(
+    read("conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/model.md", String),
+    "\$\`" => "\`\`",
+    "\`\$" => "\`\`",
     "[Neo-Hookean model](super::NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
 )
-const CAUCHYSTRESS = read(
+const ARRUDABOYCECAUCHYSTRESS = read(
     "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_stress.md",
     String,
 )
-const CAUCHYTANGENTSTIFFNESS = read(
+const ARRUDABOYCECAUCHYTANGENTSTIFFNESS = read(
     "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_tangent_stiffness.md",
     String,
 )
-const HELMHOLTZFREEENERGYDENSITY = read(
+const ARRUDABOYCEHELMHOLTZFREEENERGYDENSITY = read(
     "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/helmholtz_free_energy_density.md",
     String,
 )
 
 """
-$(MODEL)
+$(ARRUDABOYCEMODEL)
 """
 struct ArrudaBoyce
     κ::Real
@@ -37,7 +30,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(CAUCHYSTRESS)
+$(ARRUDABOYCECAUCHYSTRESS)
 """
 function cauchy_stress(model::ArrudaBoyce, F)
     raw = ccall(
@@ -54,7 +47,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(CAUCHYTANGENTSTIFFNESS)
+$(ARRUDABOYCECAUCHYTANGENTSTIFFNESS)
 """
 function cauchy_tangent_stiffness(model::ArrudaBoyce, F)
     raw = ccall(
@@ -135,7 +128,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(HELMHOLTZFREEENERGYDENSITY)
+$(ARRUDABOYCEHELMHOLTZFREEENERGYDENSITY)
 """
 function helmholtz_free_energy_density(model::ArrudaBoyce, F)
     return ccall(
