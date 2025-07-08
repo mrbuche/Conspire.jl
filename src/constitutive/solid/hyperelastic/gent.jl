@@ -1,19 +1,38 @@
 using DocStringExtensions
 
+using ....Conspire: PROJECT_ROOT
+
 const GENTMODEL = replace(
-    read("conspire.rs/src/constitutive/solid/hyperelastic/gent/model.md", String),
+    read(
+        joinpath(
+            PROJECT_ROOT,
+            "conspire.rs/src/constitutive/solid/hyperelastic/gent/model.md",
+        ),
+        String,
+    ),
     "\$\`" => "\`\`",
     "\`\$" => "\`\`",
     "[Neo-Hookean model](super::NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
 )
-const GENTCAUCHYSTRESS =
-    read("conspire.rs/src/constitutive/solid/hyperelastic/gent/cauchy_stress.md", String)
+const GENTCAUCHYSTRESS = read(
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/gent/cauchy_stress.md",
+    ),
+    String,
+)
 const GENTCAUCHYTANGENTSTIFFNESS = read(
-    "conspire.rs/src/constitutive/solid/hyperelastic/gent/cauchy_tangent_stiffness.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/gent/cauchy_tangent_stiffness.md",
+    ),
     String,
 )
 const GENTHELMHOLTZFREEENERGYDENSITY = read(
-    "conspire.rs/src/constitutive/solid/hyperelastic/gent/helmholtz_free_energy_density.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/gent/helmholtz_free_energy_density.md",
+    ),
     String,
 )
 

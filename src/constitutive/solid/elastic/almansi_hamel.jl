@@ -1,16 +1,30 @@
 using DocStringExtensions
 
+using ....Conspire: PROJECT_ROOT
+
 const ALMANSIHAMELMODEL = replace(
-    read("conspire.rs/src/constitutive/solid/elastic/almansi_hamel/model.md", String),
+    read(
+        joinpath(
+            PROJECT_ROOT,
+            "conspire.rs/src/constitutive/solid/elastic/almansi_hamel/model.md",
+        ),
+        String,
+    ),
     "\$\`" => "\`\`",
     "\`\$" => "\`\`",
 )
 const ALMANSIHAMELCAUCHYSTRESS = read(
-    "conspire.rs/src/constitutive/solid/elastic/almansi_hamel/cauchy_stress.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/elastic/almansi_hamel/cauchy_stress.md",
+    ),
     String,
 )
 const ALMANSIHAMELCAUCHYTANGENTSTIFFNESS = read(
-    "conspire.rs/src/constitutive/solid/elastic/almansi_hamel/cauchy_tangent_stiffness.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/elastic/almansi_hamel/cauchy_tangent_stiffness.md",
+    ),
     String,
 )
 

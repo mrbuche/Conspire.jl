@@ -1,23 +1,37 @@
 using DocStringExtensions
 
+using ....Conspire: PROJECT_ROOT
+
 const SAINTVENANTKIRCHHOFFMODEL = replace(
     read(
-        "conspire.rs/src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/model.md",
+        joinpath(
+            PROJECT_ROOT,
+            "conspire.rs/src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/model.md",
+        ),
         String,
     ),
     "\$\`" => "\`\`",
     "\`\$" => "\`\`",
 )
 const SAINTVENANTKIRCHHOFFSECONDPIOLAKIRCHHOFFSTRESS = read(
-    "conspire.rs/src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/second_piola_kirchhoff_stress.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/second_piola_kirchhoff_stress.md",
+    ),
     String,
 )
 const SAINTVENANTKIRCHHOFFSECONDPIOLAKIRCHHOFFTANGENTSTIFFNESS = read(
-    "conspire.rs/src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/second_piola_kirchhoff_tangent_stiffness.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/second_piola_kirchhoff_tangent_stiffness.md",
+    ),
     String,
 )
 const SAINTVENANTKIRCHHOFFHELMHOLTZFREEENERGYDENSITY = read(
-    "conspire.rs/src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/helmholtz_free_energy_density.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/helmholtz_free_energy_density.md",
+    ),
     String,
 )
 

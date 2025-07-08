@@ -1,22 +1,39 @@
 using DocStringExtensions
 
+using ....Conspire: PROJECT_ROOT
+
 const MOONEYRIVLINMODEL = replace(
-    read("conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/model.md", String),
+    read(
+        joinpath(
+            PROJECT_ROOT,
+            "conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/model.md",
+        ),
+        String,
+    ),
     "\$\`" => "\`\`",
     "\`\$" => "\`\`",
     "[Neo-Hookean model](super::NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
     "<sup>,</sup>" => "",
 )
 const MOONEYRIVLINCAUCHYSTRESS = read(
-    "conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/cauchy_stress.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/cauchy_stress.md",
+    ),
     String,
 )
 const MOONEYRIVLINCAUCHYTANGENTSTIFFNESS = read(
-    "conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/cauchy_tangent_stiffness.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/cauchy_tangent_stiffness.md",
+    ),
     String,
 )
 const MOONEYRIVLINHELMHOLTZFREEENERGYDENSITY = read(
-    "conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/helmholtz_free_energy_density.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/helmholtz_free_energy_density.md",
+    ),
     String,
 )
 
