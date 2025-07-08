@@ -1,21 +1,38 @@
 using DocStringExtensions
 
+using ....Conspire: PROJECT_ROOT
+
 const ARRUDABOYCEMODEL = replace(
-    read("conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/model.md", String),
+    read(
+        joinpath(
+            PROJECT_ROOT,
+            "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/model.md",
+        ),
+        String,
+    ),
     "\$\`" => "\`\`",
     "\`\$" => "\`\`",
     "[Neo-Hookean model](super::NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
 )
 const ARRUDABOYCECAUCHYSTRESS = read(
-    "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_stress.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_stress.md",
+    ),
     String,
 )
 const ARRUDABOYCECAUCHYTANGENTSTIFFNESS = read(
-    "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_tangent_stiffness.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_tangent_stiffness.md",
+    ),
     String,
 )
 const ARRUDABOYCEHELMHOLTZFREEENERGYDENSITY = read(
-    "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/helmholtz_free_energy_density.md",
+    joinpath(
+        PROJECT_ROOT,
+        "conspire.rs/src/constitutive/solid/hyperelastic/arruda_boyce/helmholtz_free_energy_density.md",
+    ),
     String,
 )
 
