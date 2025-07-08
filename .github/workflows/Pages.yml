@@ -37,7 +37,7 @@ jobs:
           submodules: true
       - name: Stable
         run: |
-          julia --color=yes -e 'using Pkg; Pkg.develop(path="."); Pkg.build("Conspire")'
+          julia --color=yes -e 'using Pkg; Pkg.develop(path=".")'
           julia --color=yes docs/make.jl
           mkdir -p ../_site/stable/
           cp -r docs/build/* ../_site/stable/
@@ -47,7 +47,7 @@ jobs:
           submodules: true
       - name: Latest
         run: |
-          julia --color=yes -e 'using Pkg; Pkg.develop(path="."); Pkg.build("Conspire")'
+          julia --color=yes -e 'using Pkg; Pkg.develop(path=".")'
           julia --color=yes docs/make.jl
           mkdir -p ../_site/latest/
           cp -r docs/build/* ../_site/latest/
