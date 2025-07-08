@@ -1,44 +1,8 @@
 using DocStringExtensions
 
-using ....Conspire: PROJECT_ROOT
-
-const MOONEYRIVLINMODEL = replace(
-    read(
-        joinpath(
-            PROJECT_ROOT,
-            "conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/model.md",
-        ),
-        String,
-    ),
-    "\$\`" => "\`\`",
-    "\`\$" => "\`\`",
-    "[Neo-Hookean model](super::NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
-    "<sup>,</sup>" => "",
-)
-const MOONEYRIVLINCAUCHYSTRESS = read(
-    joinpath(
-        PROJECT_ROOT,
-        "conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/cauchy_stress.md",
-    ),
-    String,
-)
-const MOONEYRIVLINCAUCHYTANGENTSTIFFNESS = read(
-    joinpath(
-        PROJECT_ROOT,
-        "conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/cauchy_tangent_stiffness.md",
-    ),
-    String,
-)
-const MOONEYRIVLINHELMHOLTZFREEENERGYDENSITY = read(
-    joinpath(
-        PROJECT_ROOT,
-        "conspire.rs/src/constitutive/solid/hyperelastic/mooney_rivlin/helmholtz_free_energy_density.md",
-    ),
-    String,
-)
-
 """
-$(MOONEYRIVLINMODEL)
+$(TYPEDEF)
+$(TYPEDFIELDS)
 """
 struct MooneyRivlin
     κ::Real
@@ -48,7 +12,6 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(MOONEYRIVLINCAUCHYSTRESS)
 """
 function cauchy_stress(model::MooneyRivlin, F)
     raw = ccall(
@@ -65,7 +28,6 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(MOONEYRIVLINCAUCHYTANGENTSTIFFNESS)
 """
 function cauchy_tangent_stiffness(model::MooneyRivlin, F)
     raw = ccall(
@@ -146,7 +108,6 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(MOONEYRIVLINHELMHOLTZFREEENERGYDENSITY)
 """
 function helmholtz_free_energy_density(model::MooneyRivlin, F)
     return ccall(
