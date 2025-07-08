@@ -1,5 +1,21 @@
 # Almansi-Hamel
 
+```@eval
+using Markdown
+using ....Conspire: PROJECT_ROOT
+
+foo = Markdown.parse(
+    replace(
+        read(
+            joinpath(
+                PROJECT_ROOT,
+                "conspire.rs/src/constitutive/solid/elastic/almansi_hamel/model.md",
+            ), String
+        ),
+    "\$\`" => "\`\`", "\`\$" => "\`\`")
+)
+```
+
 ```@docs
 AlmansiHamel
 ```
