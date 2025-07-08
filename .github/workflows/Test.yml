@@ -36,4 +36,4 @@ jobs:
         with:
           version: ${{ matrix.julia-version }}
       - name: Test
-        run: julia --color=yes -e 'using Pkg; Pkg.develop(path="."); Pkg.build("Conspire"); Pkg.test("Conspire")'
+        run: julia --color=yes -e 'using Pkg; Pkg.add(path="."); Pkg.test("Conspire")'

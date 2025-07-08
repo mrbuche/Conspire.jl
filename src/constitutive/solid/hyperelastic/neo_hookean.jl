@@ -1,42 +1,8 @@
 using DocStringExtensions
 
-using ....Conspire: PROJECT_ROOT
-
-const NEOHOOKEANMODEL = replace(
-    read(
-        joinpath(
-            PROJECT_ROOT,
-            "conspire.rs/src/constitutive/solid/hyperelastic/neo_hookean/model.md",
-        ),
-        String,
-    ),
-    "\$\`" => "\`\`",
-    "\`\$" => "\`\`",
-)
-const NEOHOOKEANCAUCHYSTRESS = read(
-    joinpath(
-        PROJECT_ROOT,
-        "conspire.rs/src/constitutive/solid/hyperelastic/neo_hookean/cauchy_stress.md",
-    ),
-    String,
-)
-const NEOHOOKEANCAUCHYTANGENTSTIFFNESS = read(
-    joinpath(
-        PROJECT_ROOT,
-        "conspire.rs/src/constitutive/solid/hyperelastic/neo_hookean/cauchy_tangent_stiffness.md",
-    ),
-    String,
-)
-const NEOHOOKEANHELMHOLTZFREEENERGYDENSITY = read(
-    joinpath(
-        PROJECT_ROOT,
-        "conspire.rs/src/constitutive/solid/hyperelastic/neo_hookean/helmholtz_free_energy_density.md",
-    ),
-    String,
-)
-
 """
-$(NEOHOOKEANMODEL)
+$(TYPEDEF)
+$(TYPEDFIELDS)
 """
 struct NeoHookean
     κ::Real
@@ -45,7 +11,6 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(NEOHOOKEANCAUCHYSTRESS)
 """
 function cauchy_stress(model::NeoHookean, F)
     raw = ccall(
@@ -61,7 +26,6 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(NEOHOOKEANCAUCHYTANGENTSTIFFNESS)
 """
 function cauchy_tangent_stiffness(model::NeoHookean, F)
     raw = ccall(
@@ -137,7 +101,6 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(NEOHOOKEANHELMHOLTZFREEENERGYDENSITY)
 """
 function helmholtz_free_energy_density(model::NeoHookean, F)
     return ccall(
