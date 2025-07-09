@@ -42,7 +42,6 @@ jobs:
           cp -r docs/build/* ../_site/stable/
       - name: Checkout (latest)
         uses: actions/checkout@v4
-        with:
       - name: Latest
         run: |
           julia --color=yes -e 'using Pkg; Pkg.develop(path=".")'
