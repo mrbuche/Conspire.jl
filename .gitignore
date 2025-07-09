@@ -1,4 +1,4 @@
-conspire.rs/
+src/**/*.md
 deps/build.log
 deps/conspire_wrapper/target/
 docs/build/
