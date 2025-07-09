@@ -1,10 +1,5 @@
 # Elastic
 
-```@eval
-using Markdown
-Markdown.parse_file(joinpath("..", "..", "..", "..", "conspire.rs", "src", "constitutive", "solid", "elastic", "doc.md"))
-```
-
 * [Almansi-Hamel](elastic/almansi_hamel.md) -- The Almansi-Hamel elastic constitutive model.
 
 ## Functions
