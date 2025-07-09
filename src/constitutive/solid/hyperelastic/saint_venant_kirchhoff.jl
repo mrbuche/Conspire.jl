@@ -1,8 +1,33 @@
 using DocStringExtensions
 
+using ....Conspire: PROJECT_ROOT
+
+const SAINT_VENANT_KIRCHHOFF_DOC = replace(
+    read(
+        joinpath(
+            PROJECT_ROOT,
+            "src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/doc.md",
+        ),
+        String,
+    ),
+    "\$\`" => "\`\`",
+    "\`\$" => "\`\`",
+)
+const SAINT_VENANT_KIRCHHOFF_SECOND_PIOLA_KIRCHHOFF_STRESS = read(
+    "src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/second_piola_kirchhoff_stress.md",
+    String,
+)
+const SAINT_VENANT_KIRCHHOFF_SECOND_PIOLA_KIRCHHOFF_TANGENT_STIFFNESS = read(
+    "src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/second_piola_kirchhoff_tangent_stiffness.md",
+    String,
+)
+const SAINT_VENANT_KIRCHHOFF_HELMHOLTZ_FREE_ENERGY_DENSITY = read(
+    "src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/helmholtz_free_energy_density.md",
+    String,
+)
+
 """
-$(TYPEDEF)
-$(TYPEDFIELDS)
+$(SAINT_VENANT_KIRCHHOFF_DOC)
 """
 struct SaintVenantKirchhoff
     κ::Real
@@ -74,6 +99,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
+$(SAINT_VENANT_KIRCHHOFF_SECOND_PIOLA_KIRCHHOFF_STRESS)
 """
 function second_piola_kirchhoff_stress(model::SaintVenantKirchhoff, F)
     raw = ccall(
@@ -89,6 +115,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
+$(SAINT_VENANT_KIRCHHOFF_SECOND_PIOLA_KIRCHHOFF_TANGENT_STIFFNESS)
 """
 function second_piola_kirchhoff_tangent_stiffness(model::SaintVenantKirchhoff, F)
     raw = ccall(
@@ -107,6 +134,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
+$(SAINT_VENANT_KIRCHHOFF_HELMHOLTZ_FREE_ENERGY_DENSITY)
 """
 function helmholtz_free_energy_density(model::SaintVenantKirchhoff, F)
     return ccall(
