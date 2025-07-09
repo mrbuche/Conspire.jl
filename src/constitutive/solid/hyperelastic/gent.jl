@@ -1,8 +1,24 @@
 using DocStringExtensions
 
+using ....Conspire: PROJECT_ROOT
+
+const GENT_DOC = replace(
+    read(joinpath(PROJECT_ROOT, "src/constitutive/solid/hyperelastic/gent/doc.md"), String),
+    "\$\`" => "\`\`",
+    "\`\$" => "\`\`",
+    "[Neo-Hookean model](super::NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
+)
+const GENT_CAUCHY_STRESS =
+    read("src/constitutive/solid/hyperelastic/gent/cauchy_stress.md", String)
+const GENT_CAUCHY_TANGENT_STIFFNESS =
+    read("src/constitutive/solid/hyperelastic/gent/cauchy_tangent_stiffness.md", String)
+const GENT_HELMHOLTZ_FREE_ENERGY_DENSITY = read(
+    "src/constitutive/solid/hyperelastic/gent/helmholtz_free_energy_density.md",
+    String,
+)
+
 """
-$(TYPEDEF)
-$(TYPEDFIELDS)
+$(GENT_DOC)
 """
 struct Gent
     κ::Real
@@ -12,6 +28,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
+$(GENT_CAUCHY_STRESS)
 """
 function cauchy_stress(model::Gent, F)
     raw = ccall(
@@ -28,6 +45,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
+$(GENT_CAUCHY_TANGENT_STIFFNESS)
 """
 function cauchy_tangent_stiffness(model::Gent, F)
     raw = ccall(
@@ -108,6 +126,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
+$(GENT_HELMHOLTZ_FREE_ENERGY_DENSITY)
 """
 function helmholtz_free_energy_density(model::Gent, F)
     return ccall(

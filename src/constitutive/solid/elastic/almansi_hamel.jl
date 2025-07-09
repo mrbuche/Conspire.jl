@@ -1,8 +1,22 @@
 using DocStringExtensions
 
+using ....Conspire: PROJECT_ROOT
+
+const ALMANSI_HAMEL_DOC = replace(
+    read(
+        joinpath(PROJECT_ROOT, "src/constitutive/solid/elastic/almansi_hamel/doc.md"),
+        String,
+    ),
+    "\$\`" => "\`\`",
+    "\`\$" => "\`\`",
+)
+const ALMANSI_HAMEL_CAUCHY_STRESS =
+    read("src/constitutive/solid/elastic/almansi_hamel/cauchy_stress.md", String)
+const ALMANSI_HAMEL_CAUCHY_TANGENT_STIFFNESS =
+    read("src/constitutive/solid/elastic/almansi_hamel/cauchy_tangent_stiffness.md", String)
+
 """
-$(TYPEDEF)
-$(TYPEDFIELDS)
+$(ALMANSI_HAMEL_DOC)
 """
 struct AlmansiHamel
     κ::Real
@@ -11,6 +25,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
+$(ALMANSI_HAMEL_CAUCHY_STRESS)
 """
 function cauchy_stress(model::AlmansiHamel, F)
     raw = ccall(
@@ -26,6 +41,7 @@ end
 
 """
 $(TYPEDSIGNATURES)
+$(ALMANSI_HAMEL_CAUCHY_TANGENT_STIFFNESS)
 """
 function cauchy_tangent_stiffness(model::AlmansiHamel, F)
     raw = ccall(
