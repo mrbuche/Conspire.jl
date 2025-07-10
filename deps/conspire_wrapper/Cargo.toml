@@ -1,5 +1,5 @@
 [package]
-authors = ["Michael R. Buche <dev@mrbuche.com>"]
+authors = ["Michael R. Buche <mrbuche@sandia.gov>"]
 categories = ["mathematics", "science"]
 description = "c o n s p i r e"
 edition = "2024"
