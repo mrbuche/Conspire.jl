@@ -6,7 +6,7 @@ const PROJECT_ROOT = string(dirname(@__FILE__), "/../")
 
 include("math.jl")
 
-export lambert_w, langevin, inverse_langevin
+export lambert_w, langevin, inverse_langevin, rosenbrock
 
 include("constitutive.jl")
 
