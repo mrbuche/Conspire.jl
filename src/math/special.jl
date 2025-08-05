@@ -37,5 +37,13 @@ f(\\mathbf{x}) = \\sum_{i=1}^{N-1} \\left[\\left(a - x_i\\right)^2 + b\\left(x_{
 ```
 """
 function rosenbrock(x, a::Float64, b::Float64)
-    return ccall((:rosenbrock, CONSPIRE_WRAPPER_LIB), Float64, (Ptr{Float64}, UInt, Float64, Float64), x, length(x), a, b)
+    return ccall(
+        (:rosenbrock, CONSPIRE_WRAPPER_LIB),
+        Float64,
+        (Ptr{Float64}, UInt, Float64, Float64),
+        x,
+        length(x),
+        a,
+        b,
+    )
 end
