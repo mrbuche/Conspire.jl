@@ -15,3 +15,7 @@ langevin
 ```@docs
 inverse_langevin
 ```
+
+```@docs
+rosenbrock
+```
