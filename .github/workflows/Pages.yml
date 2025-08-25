@@ -54,7 +54,7 @@ jobs:
           cp docs/favicon.ico ../_site/
           grep -rl "</title>" ../_site/ | xargs sed -i 's@</title>@</title><link rel="icon" type="image/x-icon" href="/Conspire.jl/favicon.ico">@'
       - name: Upload
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ../_site/
   Deploy:
