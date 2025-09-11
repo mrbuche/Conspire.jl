@@ -1,6 +1,6 @@
 module Conspire
 
-const CONSPIRE_LIB = string("../target/release/libconspire_jl")
+const CONSPIRE_LIB = string(dirname(@__FILE__), "/../target/release/libconspire_jl")
 const PROJECT_ROOT = string(dirname(@__FILE__), "/../")
 
 include("math.jl")

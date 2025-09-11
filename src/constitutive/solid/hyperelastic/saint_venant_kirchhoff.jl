@@ -84,10 +84,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_tangent_stiffness(model::SaintVenantKirchhoff, F)
     raw = ccall(
-        (
-            :saint_venant_kirchhoff_first_piola_kirchhoff_tangent_stiffness,
-            CONSPIRE_LIB,
-        ),
+        (:saint_venant_kirchhoff_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -119,10 +116,7 @@ $(SAINT_VENANT_KIRCHHOFF_SECOND_PIOLA_KIRCHHOFF_TANGENT_STIFFNESS)
 """
 function second_piola_kirchhoff_tangent_stiffness(model::SaintVenantKirchhoff, F)
     raw = ccall(
-        (
-            :saint_venant_kirchhoff_second_piola_kirchhoff_tangent_stiffness,
-            CONSPIRE_LIB,
-        ),
+        (:saint_venant_kirchhoff_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,

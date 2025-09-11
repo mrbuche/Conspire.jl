@@ -1,3 +1,5 @@
+mod math;
+
 use conspire::{
     constitutive::{
         Constitutive,
@@ -9,36 +11,16 @@ use conspire::{
             },
         },
     },
-    math::{TensorArray, TensorVec, Vector, special},
-    mechanics::{DeformationGradient, Scalar},
+    math::{Scalar, TensorArray},
+    mechanics::DeformationGradient,
 };
 use std::slice::from_raw_parts;
-
-#[unsafe(no_mangle)]
-unsafe extern "C" fn lambert_w(x: Scalar) -> Scalar {
-    special::lambert_w(x)
-}
-
-#[unsafe(no_mangle)]
-unsafe extern "C" fn langevin(x: Scalar) -> Scalar {
-    special::langevin(x)
-}
-
-#[unsafe(no_mangle)]
-unsafe extern "C" fn inverse_langevin(y: Scalar) -> Scalar {
-    special::inverse_langevin(y)
-}
-
-#[unsafe(no_mangle)]
-unsafe extern "C" fn rosenbrock(x: *const Scalar, len: usize, a: Scalar, b: Scalar) -> Scalar {
-    unsafe { special::rosenbrock(&Vector::new(from_raw_parts(x, len)), a, b) }
-}
 
 #[unsafe(no_mangle)]
 unsafe extern "C" fn almansi_hamel_cauchy_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
-    deformation_gradient: &[[Scalar; 3]; 3],
+    deformation_gradient: *const [[Scalar; 3]; 3],
 ) -> *const [[Scalar; 3]; 3] {
     unsafe {
         Box::into_raw(Box::new(
