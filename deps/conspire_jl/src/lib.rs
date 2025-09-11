@@ -38,7 +38,7 @@ unsafe extern "C" fn rosenbrock(x: *const Scalar, len: usize, a: Scalar, b: Scal
 unsafe extern "C" fn almansi_hamel_cauchy_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
-    deformation_gradient: *const [[Scalar; 3]; 3],
+    deformation_gradient: &[[Scalar; 3]; 3],
 ) -> *const [[Scalar; 3]; 3] {
     unsafe {
         Box::into_raw(Box::new(

@@ -1,5 +1,5 @@
-src/**/*.md
-deps/build.log
-deps/conspire_wrapper/target/
-docs/build/
 .vscode
+deps/build.log
+docs/build/
+src/**/*.md
+target/

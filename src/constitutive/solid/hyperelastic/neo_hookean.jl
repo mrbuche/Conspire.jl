@@ -35,7 +35,7 @@ $(NEO_HOOKEAN_CAUCHY_STRESS)
 """
 function cauchy_stress(model::NeoHookean, F)
     raw = ccall(
-        (:neo_hookean_cauchy_stress, CONSPIRE_WRAPPER_LIB),
+        (:neo_hookean_cauchy_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -51,7 +51,7 @@ $(NEO_HOOKEAN_CAUCHY_TANGENT_STIFFNESS)
 """
 function cauchy_tangent_stiffness(model::NeoHookean, F)
     raw = ccall(
-        (:neo_hookean_cauchy_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:neo_hookean_cauchy_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -66,7 +66,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_stress(model::NeoHookean, F)
     raw = ccall(
-        (:neo_hookean_first_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:neo_hookean_first_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -81,7 +81,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_tangent_stiffness(model::NeoHookean, F)
     raw = ccall(
-        (:neo_hookean_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:neo_hookean_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -96,7 +96,7 @@ $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_stress(model::NeoHookean, F)
     raw = ccall(
-        (:neo_hookean_second_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:neo_hookean_second_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -111,7 +111,7 @@ $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_tangent_stiffness(model::NeoHookean, F)
     raw = ccall(
-        (:neo_hookean_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:neo_hookean_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -127,7 +127,7 @@ $(NEO_HOOKEAN_HELMHOLTZ_FREE_ENERGY_DENSITY)
 """
 function helmholtz_free_energy_density(model::NeoHookean, F)
     return ccall(
-        (:neo_hookean_helmholtz_free_energy_density, CONSPIRE_WRAPPER_LIB),
+        (:neo_hookean_helmholtz_free_energy_density, CONSPIRE_LIB),
         Float64,
         (Float64, Float64, Ptr{Float64}),
         model.κ,

@@ -39,7 +39,7 @@ $(TYPEDSIGNATURES)
 """
 function cauchy_stress(model::SaintVenantKirchhoff, F)
     raw = ccall(
-        (:saint_venant_kirchhoff_cauchy_stress, CONSPIRE_WRAPPER_LIB),
+        (:saint_venant_kirchhoff_cauchy_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -54,7 +54,7 @@ $(TYPEDSIGNATURES)
 """
 function cauchy_tangent_stiffness(model::SaintVenantKirchhoff, F)
     raw = ccall(
-        (:saint_venant_kirchhoff_cauchy_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:saint_venant_kirchhoff_cauchy_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -69,7 +69,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_stress(model::SaintVenantKirchhoff, F)
     raw = ccall(
-        (:saint_venant_kirchhoff_first_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:saint_venant_kirchhoff_first_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -86,7 +86,7 @@ function first_piola_kirchhoff_tangent_stiffness(model::SaintVenantKirchhoff, F)
     raw = ccall(
         (
             :saint_venant_kirchhoff_first_piola_kirchhoff_tangent_stiffness,
-            CONSPIRE_WRAPPER_LIB,
+            CONSPIRE_LIB,
         ),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
@@ -103,7 +103,7 @@ $(SAINT_VENANT_KIRCHHOFF_SECOND_PIOLA_KIRCHHOFF_STRESS)
 """
 function second_piola_kirchhoff_stress(model::SaintVenantKirchhoff, F)
     raw = ccall(
-        (:saint_venant_kirchhoff_second_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:saint_venant_kirchhoff_second_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -121,7 +121,7 @@ function second_piola_kirchhoff_tangent_stiffness(model::SaintVenantKirchhoff, F
     raw = ccall(
         (
             :saint_venant_kirchhoff_second_piola_kirchhoff_tangent_stiffness,
-            CONSPIRE_WRAPPER_LIB,
+            CONSPIRE_LIB,
         ),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
@@ -138,7 +138,7 @@ $(SAINT_VENANT_KIRCHHOFF_HELMHOLTZ_FREE_ENERGY_DENSITY)
 """
 function helmholtz_free_energy_density(model::SaintVenantKirchhoff, F)
     return ccall(
-        (:saint_venant_kirchhoff_helmholtz_free_energy_density, CONSPIRE_WRAPPER_LIB),
+        (:saint_venant_kirchhoff_helmholtz_free_energy_density, CONSPIRE_LIB),
         Float64,
         (Float64, Float64, Ptr{Float64}),
         model.κ,
