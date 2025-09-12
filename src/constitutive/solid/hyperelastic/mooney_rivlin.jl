@@ -37,7 +37,7 @@ $(MOONEY_RIVLIN_CAUCHY_STRESS)
 """
 function cauchy_stress(model::MooneyRivlin, F)
     raw = ccall(
-        (:mooney_rivlin_cauchy_stress, CONSPIRE_WRAPPER_LIB),
+        (:mooney_rivlin_cauchy_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -54,7 +54,7 @@ $(MOONEY_RIVLIN_CAUCHY_TANGENT_STIFFNESS)
 """
 function cauchy_tangent_stiffness(model::MooneyRivlin, F)
     raw = ccall(
-        (:mooney_rivlin_cauchy_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:mooney_rivlin_cauchy_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -70,7 +70,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_stress(model::MooneyRivlin, F)
     raw = ccall(
-        (:mooney_rivlin_first_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:mooney_rivlin_first_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -86,7 +86,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_tangent_stiffness(model::MooneyRivlin, F)
     raw = ccall(
-        (:mooney_rivlin_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:mooney_rivlin_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -102,7 +102,7 @@ $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_stress(model::MooneyRivlin, F)
     raw = ccall(
-        (:mooney_rivlin_second_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:mooney_rivlin_second_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -118,7 +118,7 @@ $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_tangent_stiffness(model::MooneyRivlin, F)
     raw = ccall(
-        (:mooney_rivlin_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:mooney_rivlin_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -135,7 +135,7 @@ $(MOONEY_RIVLIN_HELMHOLTZ_FREE_ENERGY_DENSITY)
 """
 function helmholtz_free_energy_density(model::MooneyRivlin, F)
     return ccall(
-        (:mooney_rivlin_helmholtz_free_energy_density, CONSPIRE_WRAPPER_LIB),
+        (:mooney_rivlin_helmholtz_free_energy_density, CONSPIRE_LIB),
         Float64,
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,

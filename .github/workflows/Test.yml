@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        julia-version: [1.10.0, 1.11.0]
+        julia-version: ['1.10', '1.11']
         os: [macos-latest, ubuntu-latest]
         toolchain: [beta, nightly, stable]
     runs-on: ${{ matrix.os }}
@@ -26,9 +26,9 @@ jobs:
           components: clippy, rustfmt
           toolchain: ${{ matrix.toolchain }}
       - name: Format
-        run: cd deps/conspire_wrapper/ && cargo fmt --all -- --check
+        run: cargo fmt --all -- --check
       - name: Clippy
-        run: cd deps/conspire_wrapper/ && cargo clippy --release -- -D warnings
+        run: cargo clippy --release -- -D warnings
       - name: Julia
         uses: julia-actions/setup-julia@v2
         with:

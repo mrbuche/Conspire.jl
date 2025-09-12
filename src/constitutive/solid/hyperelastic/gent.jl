@@ -32,7 +32,7 @@ $(GENT_CAUCHY_STRESS)
 """
 function cauchy_stress(model::Gent, F)
     raw = ccall(
-        (:gent_cauchy_stress, CONSPIRE_WRAPPER_LIB),
+        (:gent_cauchy_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -49,7 +49,7 @@ $(GENT_CAUCHY_TANGENT_STIFFNESS)
 """
 function cauchy_tangent_stiffness(model::Gent, F)
     raw = ccall(
-        (:gent_cauchy_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:gent_cauchy_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -65,7 +65,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_stress(model::Gent, F)
     raw = ccall(
-        (:gent_first_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:gent_first_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -81,7 +81,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_tangent_stiffness(model::Gent, F)
     raw = ccall(
-        (:gent_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:gent_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -97,7 +97,7 @@ $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_stress(model::Gent, F)
     raw = ccall(
-        (:gent_second_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:gent_second_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -113,7 +113,7 @@ $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_tangent_stiffness(model::Gent, F)
     raw = ccall(
-        (:gent_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:gent_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -130,7 +130,7 @@ $(GENT_HELMHOLTZ_FREE_ENERGY_DENSITY)
 """
 function helmholtz_free_energy_density(model::Gent, F)
     return ccall(
-        (:gent_helmholtz_free_energy_density, CONSPIRE_WRAPPER_LIB),
+        (:gent_helmholtz_free_energy_density, CONSPIRE_LIB),
         Float64,
         (Float64, Float64, Float64, Ptr{Float64}),
         model.κ,

@@ -24,20 +24,20 @@ fn main() -> Result<(), Error> {
     ];
     models.iter().try_for_each(|model| {
         let path = model[0][0];
-        create_dir_all(Path::new(format!("../../src/{path}").as_str()))?;
+        create_dir_all(Path::new(format!("src/{path}").as_str()))?;
         write(
-            Path::new(format!("../../src/{path}/doc.md").as_str()),
+            Path::new(format!("src/{path}/doc.md").as_str()),
             model[0][1].replace("$`", "$").replace("`$", "$"),
         )?;
         model.iter().skip(1).try_for_each(|[method, doc]| {
             if doc.is_empty() {
                 write(
-                    Path::new(format!("../../src/{path}/{method}.md").as_str()),
+                    Path::new(format!("src/{path}/{method}.md").as_str()),
                     "@private",
                 )
             } else {
                 write(
-                    Path::new(format!("../../src/{path}/{method}.md").as_str()),
+                    Path::new(format!("src/{path}/{method}.md").as_str()),
                     doc.replace("```math", "$$")
                         .replace("```", "$$")
                         .replace("\\begin{aligned}", "")

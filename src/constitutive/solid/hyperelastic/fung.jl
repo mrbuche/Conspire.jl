@@ -33,7 +33,7 @@ $(FUNG_CAUCHY_STRESS)
 """
 function cauchy_stress(model::Fung, F)
     raw = ccall(
-        (:fung_cauchy_stress, CONSPIRE_WRAPPER_LIB),
+        (:fung_cauchy_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -51,7 +51,7 @@ $(FUNG_CAUCHY_TANGENT_STIFFNESS)
 """
 function cauchy_tangent_stiffness(model::Fung, F)
     raw = ccall(
-        (:fung_cauchy_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:fung_cauchy_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -68,7 +68,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_stress(model::Fung, F)
     raw = ccall(
-        (:fung_first_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:fung_first_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -85,7 +85,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_tangent_stiffness(model::Fung, F)
     raw = ccall(
-        (:fung_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:fung_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -102,7 +102,7 @@ $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_stress(model::Fung, F)
     raw = ccall(
-        (:fung_second_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:fung_second_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -119,7 +119,7 @@ $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_tangent_stiffness(model::Fung, F)
     raw = ccall(
-        (:fung_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:fung_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -137,7 +137,7 @@ $(FUNG_HELMHOLTZ_FREE_ENERGY_DENSITY)
 """
 function helmholtz_free_energy_density(model::Fung, F)
     return ccall(
-        (:fung_helmholtz_free_energy_density, CONSPIRE_WRAPPER_LIB),
+        (:fung_helmholtz_free_energy_density, CONSPIRE_LIB),
         Float64,
         (Float64, Float64, Float64, Float64, Ptr{Float64}),
         model.κ,

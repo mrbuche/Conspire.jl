@@ -29,7 +29,7 @@ $(ALMANSI_HAMEL_CAUCHY_STRESS)
 """
 function cauchy_stress(model::AlmansiHamel, F)
     raw = ccall(
-        (:almansi_hamel_cauchy_stress, CONSPIRE_WRAPPER_LIB),
+        (:almansi_hamel_cauchy_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -45,7 +45,7 @@ $(ALMANSI_HAMEL_CAUCHY_TANGENT_STIFFNESS)
 """
 function cauchy_tangent_stiffness(model::AlmansiHamel, F)
     raw = ccall(
-        (:almansi_hamel_cauchy_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:almansi_hamel_cauchy_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -60,7 +60,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_stress(model::AlmansiHamel, F)
     raw = ccall(
-        (:almansi_hamel_first_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:almansi_hamel_first_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -75,7 +75,7 @@ $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_tangent_stiffness(model::AlmansiHamel, F)
     raw = ccall(
-        (:almansi_hamel_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:almansi_hamel_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -90,7 +90,7 @@ $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_stress(model::AlmansiHamel, F)
     raw = ccall(
-        (:almansi_hamel_second_piola_kirchhoff_stress, CONSPIRE_WRAPPER_LIB),
+        (:almansi_hamel_second_piola_kirchhoff_stress, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,
@@ -105,7 +105,7 @@ $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_tangent_stiffness(model::AlmansiHamel, F)
     raw = ccall(
-        (:almansi_hamel_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_WRAPPER_LIB),
+        (:almansi_hamel_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Ptr{Float64},
         (Float64, Float64, Ptr{Float64}),
         model.κ,

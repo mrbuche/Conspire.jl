@@ -1,0 +1,26 @@
+[package]
+authors = ["Michael R. Buche <mrbuche@sandia.gov>"]
+build = "deps/conspire_jl/build.rs"
+categories = ["mathematics", "science"]
+description = "c o n s p i r e"
+edition = "2024"
+keywords = ["conspire", "mrbuche"]
+license = "GPL-3.0"
+name = "conspire_jl"
+version = "0.1.0"
+
+[build-dependencies]
+conspire = { features = ["doc", "constitutive"], git = "https://github.com/mrbuche/conspire.rs.git", rev = "39f86b1f0ec85b0c38bfb635cd34c2d5c57d3e26" }
+
+[dependencies]
+conspire = { features = ["doc", "constitutive"], git = "https://github.com/mrbuche/conspire.rs.git", rev = "39f86b1f0ec85b0c38bfb635cd34c2d5c57d3e26" }
+
+[lib]
+crate-type = ["cdylib"]
+path = "deps/conspire_jl/src/lib.rs"
+
+[profile.release]
+codegen-units = 1
+lto = true
+panic = "abort"
+strip = "symbols"
