@@ -10,10 +10,10 @@ name = "conspire_jl"
 version = "0.1.0"
 
 [build-dependencies]
-conspire = { features = ["doc", "constitutive"], git = "https://github.com/mrbuche/conspire.rs.git", rev = "39f86b1f0ec85b0c38bfb635cd34c2d5c57d3e26" }
+conspire = { features = ["doc", "fem"], git = "https://github.com/mrbuche/conspire.rs.git", branch = "deps" }
 
 [dependencies]
-conspire = { features = ["doc", "constitutive"], git = "https://github.com/mrbuche/conspire.rs.git", rev = "39f86b1f0ec85b0c38bfb635cd34c2d5c57d3e26" }
+conspire = { features = ["doc", "fem"], git = "https://github.com/mrbuche/conspire.rs.git", branch = "deps" }
 
 [lib]
 crate-type = ["cdylib"]
