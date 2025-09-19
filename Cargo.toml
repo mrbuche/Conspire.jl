@@ -10,10 +10,10 @@ name = "conspire_jl"
 version = "0.1.0"
 
 [build-dependencies]
-conspire = { version = "=0.5.11", features = ["fem"] }
+conspire = { version = "=0.5.11", features = ["doc", "fem"] }
 
 [dependencies]
-conspire = { version = "=0.5.11", features = ["fem"] }
+conspire = { version = "=0.5.11", features = ["doc", "fem"] }
 
 [lib]
 crate-type = ["cdylib"]
