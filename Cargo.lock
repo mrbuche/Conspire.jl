@@ -5,7 +5,8 @@ version = 4
 [[package]]
 name = "conspire"
 version = "0.5.11"
-source = "git+https://github.com/mrbuche/conspire.rs.git?branch=deps#b499efc61621f419f818a1eefc938859e49242b4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "74f5f7235035fe5a308711a970b454b51817a78b1e889076c5bbbec07d8641bb"
 
 [[package]]
 name = "conspire_jl"
