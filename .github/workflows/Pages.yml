@@ -31,7 +31,7 @@ jobs:
       - name: Dependencies
         run: julia --color=yes -e 'using Pkg; Pkg.add(["DocStringExtensions", "Documenter"])'
       - name: Checkout (stable)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: ${{ steps.last_release.outputs.tag_name }}
       - name: Stable
@@ -41,7 +41,7 @@ jobs:
           mkdir -p ../_site/stable/
           cp -r docs/build/* ../_site/stable/
       - name: Checkout (latest)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Latest
         run: |
           julia --color=yes -e 'using Pkg; Pkg.develop(path="."); Pkg.build("Conspire")'
