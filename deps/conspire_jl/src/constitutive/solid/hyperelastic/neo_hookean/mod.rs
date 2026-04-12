@@ -4,7 +4,6 @@ use conspire::{
         hyperelastic::{Hyperelastic, NeoHookean},
     },
     math::{Scalar, TensorArray},
-    mechanics::DeformationGradient,
 };
 use std::slice::from_raw_parts;
 
@@ -20,9 +19,7 @@ unsafe extern "C" fn neo_hookean_cauchy_stress(
                 bulk_modulus,
                 shear_modulus,
             }
-            .cauchy_stress(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .cauchy_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -41,9 +38,7 @@ unsafe extern "C" fn neo_hookean_cauchy_tangent_stiffness(
                 bulk_modulus,
                 shear_modulus,
             }
-            .cauchy_tangent_stiffness(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .cauchy_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -62,9 +57,7 @@ unsafe extern "C" fn neo_hookean_first_piola_kirchhoff_stress(
                 bulk_modulus,
                 shear_modulus,
             }
-            .first_piola_kirchhoff_stress(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .first_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -83,9 +76,9 @@ unsafe extern "C" fn neo_hookean_first_piola_kirchhoff_tangent_stiffness(
                 bulk_modulus,
                 shear_modulus,
             }
-            .first_piola_kirchhoff_tangent_stiffness(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .first_piola_kirchhoff_tangent_stiffness(
+                &from_raw_parts(deformation_gradient, 9)[0].into(),
+            )
             .unwrap()
             .as_array(),
         ))
@@ -104,9 +97,7 @@ unsafe extern "C" fn neo_hookean_second_piola_kirchhoff_stress(
                 bulk_modulus,
                 shear_modulus,
             }
-            .second_piola_kirchhoff_stress(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .second_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -125,9 +116,9 @@ unsafe extern "C" fn neo_hookean_second_piola_kirchhoff_tangent_stiffness(
                 bulk_modulus,
                 shear_modulus,
             }
-            .second_piola_kirchhoff_tangent_stiffness(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .second_piola_kirchhoff_tangent_stiffness(
+                &from_raw_parts(deformation_gradient, 9)[0].into(),
+            )
             .unwrap()
             .as_array(),
         ))
@@ -145,9 +136,7 @@ unsafe extern "C" fn neo_hookean_helmholtz_free_energy_density(
             bulk_modulus,
             shear_modulus,
         }
-        .helmholtz_free_energy_density(&DeformationGradient::new(
-            from_raw_parts(deformation_gradient, 9)[0],
-        ))
+        .helmholtz_free_energy_density(&from_raw_parts(deformation_gradient, 9)[0].into())
         .unwrap()
     }
 }

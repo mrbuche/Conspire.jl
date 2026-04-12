@@ -4,7 +4,6 @@ use conspire::{
         hyperelastic::{Fung, Hyperelastic},
     },
     math::{Scalar, TensorArray},
-    mechanics::DeformationGradient,
 };
 use std::slice::from_raw_parts;
 
@@ -24,9 +23,7 @@ unsafe extern "C" fn fung_cauchy_stress(
                 extra_modulus,
                 exponent,
             }
-            .cauchy_stress(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .cauchy_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -49,9 +46,7 @@ unsafe extern "C" fn fung_cauchy_tangent_stiffness(
                 extra_modulus,
                 exponent,
             }
-            .cauchy_tangent_stiffness(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .cauchy_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -74,9 +69,7 @@ unsafe extern "C" fn fung_first_piola_kirchhoff_stress(
                 extra_modulus,
                 exponent,
             }
-            .first_piola_kirchhoff_stress(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .first_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -99,9 +92,9 @@ unsafe extern "C" fn fung_first_piola_kirchhoff_tangent_stiffness(
                 extra_modulus,
                 exponent,
             }
-            .first_piola_kirchhoff_tangent_stiffness(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .first_piola_kirchhoff_tangent_stiffness(
+                &from_raw_parts(deformation_gradient, 9)[0].into(),
+            )
             .unwrap()
             .as_array(),
         ))
@@ -124,9 +117,7 @@ unsafe extern "C" fn fung_second_piola_kirchhoff_stress(
                 extra_modulus,
                 exponent,
             }
-            .second_piola_kirchhoff_stress(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .second_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -149,9 +140,9 @@ unsafe extern "C" fn fung_second_piola_kirchhoff_tangent_stiffness(
                 extra_modulus,
                 exponent,
             }
-            .second_piola_kirchhoff_tangent_stiffness(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .second_piola_kirchhoff_tangent_stiffness(
+                &from_raw_parts(deformation_gradient, 9)[0].into(),
+            )
             .unwrap()
             .as_array(),
         ))
@@ -173,9 +164,7 @@ unsafe extern "C" fn fung_helmholtz_free_energy_density(
             extra_modulus,
             exponent,
         }
-        .helmholtz_free_energy_density(&DeformationGradient::new(
-            from_raw_parts(deformation_gradient, 9)[0],
-        ))
+        .helmholtz_free_energy_density(&from_raw_parts(deformation_gradient, 9)[0].into())
         .unwrap()
     }
 }
