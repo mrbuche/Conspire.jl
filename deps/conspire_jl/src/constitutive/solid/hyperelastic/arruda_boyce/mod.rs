@@ -4,7 +4,6 @@ use conspire::{
         hyperelastic::{ArrudaBoyce, Hyperelastic},
     },
     math::{Scalar, TensorArray},
-    mechanics::DeformationGradient,
 };
 use std::slice::from_raw_parts;
 
@@ -22,9 +21,7 @@ unsafe extern "C" fn arruda_boyce_cauchy_stress(
                 shear_modulus,
                 number_of_links,
             }
-            .cauchy_stress(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .cauchy_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -45,9 +42,7 @@ unsafe extern "C" fn arruda_boyce_cauchy_tangent_stiffness(
                 shear_modulus,
                 number_of_links,
             }
-            .cauchy_tangent_stiffness(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .cauchy_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -68,9 +63,7 @@ unsafe extern "C" fn arruda_boyce_first_piola_kirchhoff_stress(
                 shear_modulus,
                 number_of_links,
             }
-            .first_piola_kirchhoff_stress(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .first_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -91,9 +84,9 @@ unsafe extern "C" fn arruda_boyce_first_piola_kirchhoff_tangent_stiffness(
                 shear_modulus,
                 number_of_links,
             }
-            .first_piola_kirchhoff_tangent_stiffness(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .first_piola_kirchhoff_tangent_stiffness(
+                &from_raw_parts(deformation_gradient, 9)[0].into(),
+            )
             .unwrap()
             .as_array(),
         ))
@@ -114,9 +107,7 @@ unsafe extern "C" fn arruda_boyce_second_piola_kirchhoff_stress(
                 shear_modulus,
                 number_of_links,
             }
-            .second_piola_kirchhoff_stress(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .second_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
             .unwrap()
             .as_array(),
         ))
@@ -137,9 +128,9 @@ unsafe extern "C" fn arruda_boyce_second_piola_kirchhoff_tangent_stiffness(
                 shear_modulus,
                 number_of_links,
             }
-            .second_piola_kirchhoff_tangent_stiffness(&DeformationGradient::new(
-                from_raw_parts(deformation_gradient, 9)[0],
-            ))
+            .second_piola_kirchhoff_tangent_stiffness(
+                &from_raw_parts(deformation_gradient, 9)[0].into(),
+            )
             .unwrap()
             .as_array(),
         ))
@@ -159,9 +150,7 @@ unsafe extern "C" fn arruda_boyce_helmholtz_free_energy_density(
             shear_modulus,
             number_of_links,
         }
-        .helmholtz_free_energy_density(&DeformationGradient::new(
-            from_raw_parts(deformation_gradient, 9)[0],
-        ))
+        .helmholtz_free_energy_density(&from_raw_parts(deformation_gradient, 9)[0].into())
         .unwrap()
     }
 }
