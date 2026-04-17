@@ -30,7 +30,7 @@ jobs:
       - name: Clippy
         run: cargo clippy --release -- -D warnings
       - name: Julia
-        uses: julia-actions/setup-julia@v2
+        uses: julia-actions/setup-julia@v3
         with:
           version: ${{ matrix.julia-version }}
       - name: Test
