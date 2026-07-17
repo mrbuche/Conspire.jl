@@ -23,10 +23,57 @@ macro_rules! hyperelastic_ffi {
     };
 }
 
-hyperelastic_ffi!(arruda_boyce, ArrudaBoyce { bulk_modulus, shear_modulus, number_of_links });
-hyperelastic_ffi!(fung, Fung { bulk_modulus, shear_modulus, extra_modulus, exponent });
-hyperelastic_ffi!(gent, Gent { bulk_modulus, shear_modulus, extensibility });
-hyperelastic_ffi!(hencky, Hencky { bulk_modulus, shear_modulus });
-hyperelastic_ffi!(mooney_rivlin, MooneyRivlin { bulk_modulus, shear_modulus, extra_modulus });
-hyperelastic_ffi!(neo_hookean, NeoHookean { bulk_modulus, shear_modulus });
-hyperelastic_ffi!(saint_venant_kirchhoff, SaintVenantKirchhoff { bulk_modulus, shear_modulus });
+hyperelastic_ffi!(
+    arruda_boyce,
+    ArrudaBoyce {
+        bulk_modulus,
+        shear_modulus,
+        number_of_links
+    }
+);
+hyperelastic_ffi!(
+    fung,
+    Fung {
+        bulk_modulus,
+        shear_modulus,
+        extra_modulus,
+        exponent
+    }
+);
+hyperelastic_ffi!(
+    gent,
+    Gent {
+        bulk_modulus,
+        shear_modulus,
+        extensibility
+    }
+);
+hyperelastic_ffi!(
+    hencky,
+    Hencky {
+        bulk_modulus,
+        shear_modulus
+    }
+);
+hyperelastic_ffi!(
+    mooney_rivlin,
+    MooneyRivlin {
+        bulk_modulus,
+        shear_modulus,
+        extra_modulus
+    }
+);
+hyperelastic_ffi!(
+    neo_hookean,
+    NeoHookean {
+        bulk_modulus,
+        shear_modulus
+    }
+);
+hyperelastic_ffi!(
+    saint_venant_kirchhoff,
+    SaintVenantKirchhoff {
+        bulk_modulus,
+        shear_modulus
+    }
+);

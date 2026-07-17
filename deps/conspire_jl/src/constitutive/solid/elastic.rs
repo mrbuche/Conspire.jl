@@ -119,9 +119,24 @@ macro_rules! elastic_ffi {
 
 pub(crate) use elastic_ffi_items;
 
-elastic_ffi!(almansi_hamel, AlmansiHamel { bulk_modulus, shear_modulus });
-elastic_ffi!(hencky_elastic, Hencky { bulk_modulus, shear_modulus });
+elastic_ffi!(
+    almansi_hamel,
+    AlmansiHamel {
+        bulk_modulus,
+        shear_modulus
+    }
+);
+elastic_ffi!(
+    hencky_elastic,
+    Hencky {
+        bulk_modulus,
+        shear_modulus
+    }
+);
 elastic_ffi!(
     saint_venant_kirchhoff_elastic,
-    SaintVenantKirchhoff { bulk_modulus, shear_modulus }
+    SaintVenantKirchhoff {
+        bulk_modulus,
+        shear_modulus
+    }
 );

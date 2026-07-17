@@ -7,8 +7,8 @@ use std::{
 use conspire::constitutive::solid::{
     elastic::doc::{almansi_hamel, hencky as hencky_elastic},
     hyperelastic::{
-        doc::arruda_boyce, doc::fung, doc::gent, doc::hencky, doc::mooney_rivlin,
-        doc::neo_hookean, doc::saint_venant_kirchhoff,
+        doc::arruda_boyce, doc::fung, doc::gent, doc::hencky, doc::mooney_rivlin, doc::neo_hookean,
+        doc::saint_venant_kirchhoff,
     },
 };
 
