@@ -5,7 +5,7 @@ use std::{
 };
 
 use conspire::constitutive::solid::{
-    elastic::doc::almansi_hamel,
+    elastic::doc::{almansi_hamel, hencky as hencky_elastic},
     hyperelastic::{
         doc::arruda_boyce, doc::fung, doc::gent, doc::hencky, doc::mooney_rivlin,
         doc::neo_hookean, doc::saint_venant_kirchhoff,
@@ -19,6 +19,7 @@ fn main() -> Result<(), Error> {
         fung(),
         gent(),
         hencky(),
+        hencky_elastic(),
         mooney_rivlin(),
         neo_hookean(),
         saint_venant_kirchhoff(),
