@@ -10,14 +10,25 @@ const NEO_HOOKEAN_DOC = replace(
     "\$\`" => "\`\`",
     "\`\$" => "\`\`",
 )
-const NEO_HOOKEAN_CAUCHY_STRESS =
-    read("src/constitutive/solid/hyperelastic/neo_hookean/cauchy_stress.md", String)
+const NEO_HOOKEAN_CAUCHY_STRESS = read(
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/neo_hookean/cauchy_stress.md",
+    ),
+    String,
+)
 const NEO_HOOKEAN_CAUCHY_TANGENT_STIFFNESS = read(
-    "src/constitutive/solid/hyperelastic/neo_hookean/cauchy_tangent_stiffness.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/neo_hookean/cauchy_tangent_stiffness.md",
+    ),
     String,
 )
 const NEO_HOOKEAN_HELMHOLTZ_FREE_ENERGY_DENSITY = read(
-    "src/constitutive/solid/hyperelastic/neo_hookean/helmholtz_free_energy_density.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/neo_hookean/helmholtz_free_energy_density.md",
+    ),
     String,
 )
 

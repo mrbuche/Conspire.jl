@@ -10,12 +10,22 @@ const HENCKY_DOC = replace(
     "\$\`" => "\`\`",
     "\`\$" => "\`\`",
 )
-const HENCKY_CAUCHY_STRESS =
-    read("src/constitutive/solid/hyperelastic/hencky/cauchy_stress.md", String)
-const HENCKY_CAUCHY_TANGENT_STIFFNESS =
-    read("src/constitutive/solid/hyperelastic/hencky/cauchy_tangent_stiffness.md", String)
+const HENCKY_CAUCHY_STRESS = read(
+    joinpath(PROJECT_ROOT, "src/constitutive/solid/hyperelastic/hencky/cauchy_stress.md"),
+    String,
+)
+const HENCKY_CAUCHY_TANGENT_STIFFNESS = read(
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/hencky/cauchy_tangent_stiffness.md",
+    ),
+    String,
+)
 const HENCKY_HELMHOLTZ_FREE_ENERGY_DENSITY = read(
-    "src/constitutive/solid/hyperelastic/hencky/helmholtz_free_energy_density.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/hencky/helmholtz_free_energy_density.md",
+    ),
     String,
 )
 

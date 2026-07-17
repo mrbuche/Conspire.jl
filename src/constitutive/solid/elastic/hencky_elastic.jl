@@ -7,10 +7,18 @@ const HENCKY_ELASTIC_DOC = replace(
     "\$\`" => "\`\`",
     "\`\$" => "\`\`",
 )
-const HENCKY_ELASTIC_SECOND_PIOLA_KIRCHHOFF_STRESS =
-    read("src/constitutive/solid/elastic/hencky/second_piola_kirchhoff_stress.md", String)
+const HENCKY_ELASTIC_SECOND_PIOLA_KIRCHHOFF_STRESS = read(
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/elastic/hencky/second_piola_kirchhoff_stress.md",
+    ),
+    String,
+)
 const HENCKY_ELASTIC_SECOND_PIOLA_KIRCHHOFF_TANGENT_STIFFNESS = read(
-    "src/constitutive/solid/elastic/hencky/second_piola_kirchhoff_tangent_stiffness.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/elastic/hencky/second_piola_kirchhoff_tangent_stiffness.md",
+    ),
     String,
 )
 

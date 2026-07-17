@@ -11,14 +11,25 @@ const MOONEY_RIVLIN_DOC = replace(
     "\`\$" => "\`\`",
     "[Neo-Hookean model](super::NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
 )
-const MOONEY_RIVLIN_CAUCHY_STRESS =
-    read("src/constitutive/solid/hyperelastic/mooney_rivlin/cauchy_stress.md", String)
+const MOONEY_RIVLIN_CAUCHY_STRESS = read(
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/mooney_rivlin/cauchy_stress.md",
+    ),
+    String,
+)
 const MOONEY_RIVLIN_CAUCHY_TANGENT_STIFFNESS = read(
-    "src/constitutive/solid/hyperelastic/mooney_rivlin/cauchy_tangent_stiffness.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/mooney_rivlin/cauchy_tangent_stiffness.md",
+    ),
     String,
 )
 const MOONEY_RIVLIN_HELMHOLTZ_FREE_ENERGY_DENSITY = read(
-    "src/constitutive/solid/hyperelastic/mooney_rivlin/helmholtz_free_energy_density.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/mooney_rivlin/helmholtz_free_energy_density.md",
+    ),
     String,
 )
 

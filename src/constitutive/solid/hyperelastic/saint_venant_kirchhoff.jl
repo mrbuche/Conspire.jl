@@ -14,15 +14,24 @@ const SAINT_VENANT_KIRCHHOFF_DOC = replace(
     "\`\$" => "\`\`",
 )
 const SAINT_VENANT_KIRCHHOFF_SECOND_PIOLA_KIRCHHOFF_STRESS = read(
-    "src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/second_piola_kirchhoff_stress.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/second_piola_kirchhoff_stress.md",
+    ),
     String,
 )
 const SAINT_VENANT_KIRCHHOFF_SECOND_PIOLA_KIRCHHOFF_TANGENT_STIFFNESS = read(
-    "src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/second_piola_kirchhoff_tangent_stiffness.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/second_piola_kirchhoff_tangent_stiffness.md",
+    ),
     String,
 )
 const SAINT_VENANT_KIRCHHOFF_HELMHOLTZ_FREE_ENERGY_DENSITY = read(
-    "src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/helmholtz_free_energy_density.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/saint_venant_kirchhoff/helmholtz_free_energy_density.md",
+    ),
     String,
 )
 

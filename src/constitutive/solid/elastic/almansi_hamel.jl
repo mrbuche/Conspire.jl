@@ -10,10 +10,17 @@ const ALMANSI_HAMEL_DOC = replace(
     "\$\`" => "\`\`",
     "\`\$" => "\`\`",
 )
-const ALMANSI_HAMEL_CAUCHY_STRESS =
-    read("src/constitutive/solid/elastic/almansi_hamel/cauchy_stress.md", String)
-const ALMANSI_HAMEL_CAUCHY_TANGENT_STIFFNESS =
-    read("src/constitutive/solid/elastic/almansi_hamel/cauchy_tangent_stiffness.md", String)
+const ALMANSI_HAMEL_CAUCHY_STRESS = read(
+    joinpath(PROJECT_ROOT, "src/constitutive/solid/elastic/almansi_hamel/cauchy_stress.md"),
+    String,
+)
+const ALMANSI_HAMEL_CAUCHY_TANGENT_STIFFNESS = read(
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/elastic/almansi_hamel/cauchy_tangent_stiffness.md",
+    ),
+    String,
+)
 
 """
 $(ALMANSI_HAMEL_DOC)

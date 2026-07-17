@@ -8,12 +8,22 @@ const FUNG_DOC = replace(
     "\`\$" => "\`\`",
     "[Neo-Hookean model](super::NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
 )
-const FUNG_CAUCHY_STRESS =
-    read("src/constitutive/solid/hyperelastic/fung/cauchy_stress.md", String)
-const FUNG_CAUCHY_TANGENT_STIFFNESS =
-    read("src/constitutive/solid/hyperelastic/fung/cauchy_tangent_stiffness.md", String)
+const FUNG_CAUCHY_STRESS = read(
+    joinpath(PROJECT_ROOT, "src/constitutive/solid/hyperelastic/fung/cauchy_stress.md"),
+    String,
+)
+const FUNG_CAUCHY_TANGENT_STIFFNESS = read(
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/fung/cauchy_tangent_stiffness.md",
+    ),
+    String,
+)
 const FUNG_HELMHOLTZ_FREE_ENERGY_DENSITY = read(
-    "src/constitutive/solid/hyperelastic/fung/helmholtz_free_energy_density.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/fung/helmholtz_free_energy_density.md",
+    ),
     String,
 )
 

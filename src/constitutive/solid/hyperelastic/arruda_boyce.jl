@@ -11,14 +11,25 @@ const ARRUDA_BOYCE_DOC = replace(
     "\`\$" => "\`\`",
     "[Neo-Hookean model](super::NeoHookean)" => "[Neo-Hookean model](@ref Neo-Hookean) model",
 )
-const ARRUDA_BOYCE_CAUCHY_STRESS =
-    read("src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_stress.md", String)
+const ARRUDA_BOYCE_CAUCHY_STRESS = read(
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_stress.md",
+    ),
+    String,
+)
 const ARRUDA_BOYCE_CAUCHY_TANGENT_STIFFNESS = read(
-    "src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_tangent_stiffness.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/arruda_boyce/cauchy_tangent_stiffness.md",
+    ),
     String,
 )
 const ARRUDA_BOYCE_HELMHOLTZ_FREE_ENERGY_DENSITY = read(
-    "src/constitutive/solid/hyperelastic/arruda_boyce/helmholtz_free_energy_density.md",
+    joinpath(
+        PROJECT_ROOT,
+        "src/constitutive/solid/hyperelastic/arruda_boyce/helmholtz_free_energy_density.md",
+    ),
     String,
 )
 
