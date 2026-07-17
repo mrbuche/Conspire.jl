@@ -1,2 +1,1 @@
-mod ffi;
 mod solid;
