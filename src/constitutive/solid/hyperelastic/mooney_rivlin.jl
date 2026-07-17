@@ -36,16 +36,18 @@ $(TYPEDSIGNATURES)
 $(MOONEY_RIVLIN_CAUCHY_STRESS)
 """
 function cauchy_stress(model::MooneyRivlin, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3)
+    ccall(
         (:mooney_rivlin_cauchy_stress, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         model.μₘ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 9, own = false), (3, 3))
+    return output
 end
 
 """
@@ -53,80 +55,90 @@ $(TYPEDSIGNATURES)
 $(MOONEY_RIVLIN_CAUCHY_TANGENT_STIFFNESS)
 """
 function cauchy_tangent_stiffness(model::MooneyRivlin, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3, 3, 3)
+    ccall(
         (:mooney_rivlin_cauchy_tangent_stiffness, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         model.μₘ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 81, own = false), (3, 3, 3, 3))
+    return output
 end
 
 """
 $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_stress(model::MooneyRivlin, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3)
+    ccall(
         (:mooney_rivlin_first_piola_kirchhoff_stress, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         model.μₘ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 9, own = false), (3, 3))
+    return output
 end
 
 """
 $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_tangent_stiffness(model::MooneyRivlin, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3, 3, 3)
+    ccall(
         (:mooney_rivlin_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         model.μₘ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 81, own = false), (3, 3, 3, 3))
+    return output
 end
 
 """
 $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_stress(model::MooneyRivlin, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3)
+    ccall(
         (:mooney_rivlin_second_piola_kirchhoff_stress, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         model.μₘ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 9, own = false), (3, 3))
+    return output
 end
 
 """
 $(TYPEDSIGNATURES)
 """
 function second_piola_kirchhoff_tangent_stiffness(model::MooneyRivlin, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3, 3, 3)
+    ccall(
         (:mooney_rivlin_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         model.μₘ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 81, own = false), (3, 3, 3, 3))
+    return output
 end
 
 """

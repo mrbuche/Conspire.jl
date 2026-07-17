@@ -13,18 +13,17 @@ unsafe extern "C" fn arruda_boyce_cauchy_stress(
     shear_modulus: Scalar,
     number_of_links: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            ArrudaBoyce {
-                bulk_modulus,
-                shear_modulus,
-                number_of_links,
-            }
-            .cauchy_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = ArrudaBoyce {
+            bulk_modulus,
+            shear_modulus,
+            number_of_links,
+        }
+        .cauchy_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -34,18 +33,17 @@ unsafe extern "C" fn arruda_boyce_cauchy_tangent_stiffness(
     shear_modulus: Scalar,
     number_of_links: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            ArrudaBoyce {
-                bulk_modulus,
-                shear_modulus,
-                number_of_links,
-            }
-            .cauchy_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = ArrudaBoyce {
+            bulk_modulus,
+            shear_modulus,
+            number_of_links,
+        }
+        .cauchy_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -55,18 +53,17 @@ unsafe extern "C" fn arruda_boyce_first_piola_kirchhoff_stress(
     shear_modulus: Scalar,
     number_of_links: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            ArrudaBoyce {
-                bulk_modulus,
-                shear_modulus,
-                number_of_links,
-            }
-            .first_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = ArrudaBoyce {
+            bulk_modulus,
+            shear_modulus,
+            number_of_links,
+        }
+        .first_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -76,20 +73,19 @@ unsafe extern "C" fn arruda_boyce_first_piola_kirchhoff_tangent_stiffness(
     shear_modulus: Scalar,
     number_of_links: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            ArrudaBoyce {
-                bulk_modulus,
-                shear_modulus,
-                number_of_links,
-            }
-            .first_piola_kirchhoff_tangent_stiffness(
-                &from_raw_parts(deformation_gradient, 9)[0].into(),
-            )
-            .unwrap()
-            .as_array(),
-        ))
+        *output = ArrudaBoyce {
+            bulk_modulus,
+            shear_modulus,
+            number_of_links,
+        }
+        .first_piola_kirchhoff_tangent_stiffness(
+            &from_raw_parts(deformation_gradient, 9)[0].into(),
+        )
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -99,18 +95,17 @@ unsafe extern "C" fn arruda_boyce_second_piola_kirchhoff_stress(
     shear_modulus: Scalar,
     number_of_links: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            ArrudaBoyce {
-                bulk_modulus,
-                shear_modulus,
-                number_of_links,
-            }
-            .second_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = ArrudaBoyce {
+            bulk_modulus,
+            shear_modulus,
+            number_of_links,
+        }
+        .second_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -120,20 +115,19 @@ unsafe extern "C" fn arruda_boyce_second_piola_kirchhoff_tangent_stiffness(
     shear_modulus: Scalar,
     number_of_links: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            ArrudaBoyce {
-                bulk_modulus,
-                shear_modulus,
-                number_of_links,
-            }
-            .second_piola_kirchhoff_tangent_stiffness(
-                &from_raw_parts(deformation_gradient, 9)[0].into(),
-            )
-            .unwrap()
-            .as_array(),
-        ))
+        *output = ArrudaBoyce {
+            bulk_modulus,
+            shear_modulus,
+            number_of_links,
+        }
+        .second_piola_kirchhoff_tangent_stiffness(
+            &from_raw_parts(deformation_gradient, 9)[0].into(),
+        )
+        .unwrap()
+        .as_array();
     }
 }
 

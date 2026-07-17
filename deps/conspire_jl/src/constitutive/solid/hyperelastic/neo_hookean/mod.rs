@@ -12,17 +12,16 @@ unsafe extern "C" fn neo_hookean_cauchy_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            NeoHookean {
-                bulk_modulus,
-                shear_modulus,
-            }
-            .cauchy_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = NeoHookean {
+            bulk_modulus,
+            shear_modulus,
+        }
+        .cauchy_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -31,17 +30,16 @@ unsafe extern "C" fn neo_hookean_cauchy_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            NeoHookean {
-                bulk_modulus,
-                shear_modulus,
-            }
-            .cauchy_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = NeoHookean {
+            bulk_modulus,
+            shear_modulus,
+        }
+        .cauchy_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -50,17 +48,16 @@ unsafe extern "C" fn neo_hookean_first_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            NeoHookean {
-                bulk_modulus,
-                shear_modulus,
-            }
-            .first_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = NeoHookean {
+            bulk_modulus,
+            shear_modulus,
+        }
+        .first_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -69,19 +66,16 @@ unsafe extern "C" fn neo_hookean_first_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            NeoHookean {
-                bulk_modulus,
-                shear_modulus,
-            }
-            .first_piola_kirchhoff_tangent_stiffness(
-                &from_raw_parts(deformation_gradient, 9)[0].into(),
-            )
-            .unwrap()
-            .as_array(),
-        ))
+        *output = NeoHookean {
+            bulk_modulus,
+            shear_modulus,
+        }
+        .first_piola_kirchhoff_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -90,17 +84,16 @@ unsafe extern "C" fn neo_hookean_second_piola_kirchhoff_stress(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            NeoHookean {
-                bulk_modulus,
-                shear_modulus,
-            }
-            .second_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = NeoHookean {
+            bulk_modulus,
+            shear_modulus,
+        }
+        .second_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -109,19 +102,16 @@ unsafe extern "C" fn neo_hookean_second_piola_kirchhoff_tangent_stiffness(
     bulk_modulus: Scalar,
     shear_modulus: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            NeoHookean {
-                bulk_modulus,
-                shear_modulus,
-            }
-            .second_piola_kirchhoff_tangent_stiffness(
-                &from_raw_parts(deformation_gradient, 9)[0].into(),
-            )
-            .unwrap()
-            .as_array(),
-        ))
+        *output = NeoHookean {
+            bulk_modulus,
+            shear_modulus,
+        }
+        .second_piola_kirchhoff_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 

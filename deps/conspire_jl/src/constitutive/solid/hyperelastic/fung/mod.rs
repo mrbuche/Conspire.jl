@@ -14,19 +14,18 @@ unsafe extern "C" fn fung_cauchy_stress(
     extra_modulus: Scalar,
     exponent: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Fung {
-                bulk_modulus,
-                shear_modulus,
-                extra_modulus,
-                exponent,
-            }
-            .cauchy_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Fung {
+            bulk_modulus,
+            shear_modulus,
+            extra_modulus,
+            exponent,
+        }
+        .cauchy_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -37,19 +36,18 @@ unsafe extern "C" fn fung_cauchy_tangent_stiffness(
     extra_modulus: Scalar,
     exponent: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Fung {
-                bulk_modulus,
-                shear_modulus,
-                extra_modulus,
-                exponent,
-            }
-            .cauchy_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Fung {
+            bulk_modulus,
+            shear_modulus,
+            extra_modulus,
+            exponent,
+        }
+        .cauchy_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -60,19 +58,18 @@ unsafe extern "C" fn fung_first_piola_kirchhoff_stress(
     extra_modulus: Scalar,
     exponent: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Fung {
-                bulk_modulus,
-                shear_modulus,
-                extra_modulus,
-                exponent,
-            }
-            .first_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Fung {
+            bulk_modulus,
+            shear_modulus,
+            extra_modulus,
+            exponent,
+        }
+        .first_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -83,21 +80,20 @@ unsafe extern "C" fn fung_first_piola_kirchhoff_tangent_stiffness(
     extra_modulus: Scalar,
     exponent: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Fung {
-                bulk_modulus,
-                shear_modulus,
-                extra_modulus,
-                exponent,
-            }
-            .first_piola_kirchhoff_tangent_stiffness(
-                &from_raw_parts(deformation_gradient, 9)[0].into(),
-            )
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Fung {
+            bulk_modulus,
+            shear_modulus,
+            extra_modulus,
+            exponent,
+        }
+        .first_piola_kirchhoff_tangent_stiffness(
+            &from_raw_parts(deformation_gradient, 9)[0].into(),
+        )
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -108,19 +104,18 @@ unsafe extern "C" fn fung_second_piola_kirchhoff_stress(
     extra_modulus: Scalar,
     exponent: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Fung {
-                bulk_modulus,
-                shear_modulus,
-                extra_modulus,
-                exponent,
-            }
-            .second_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Fung {
+            bulk_modulus,
+            shear_modulus,
+            extra_modulus,
+            exponent,
+        }
+        .second_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -131,21 +126,20 @@ unsafe extern "C" fn fung_second_piola_kirchhoff_tangent_stiffness(
     extra_modulus: Scalar,
     exponent: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Fung {
-                bulk_modulus,
-                shear_modulus,
-                extra_modulus,
-                exponent,
-            }
-            .second_piola_kirchhoff_tangent_stiffness(
-                &from_raw_parts(deformation_gradient, 9)[0].into(),
-            )
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Fung {
+            bulk_modulus,
+            shear_modulus,
+            extra_modulus,
+            exponent,
+        }
+        .second_piola_kirchhoff_tangent_stiffness(
+            &from_raw_parts(deformation_gradient, 9)[0].into(),
+        )
+        .unwrap()
+        .as_array();
     }
 }
 

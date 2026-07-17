@@ -13,18 +13,17 @@ unsafe extern "C" fn gent_cauchy_stress(
     shear_modulus: Scalar,
     extensibility: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Gent {
-                bulk_modulus,
-                shear_modulus,
-                extensibility,
-            }
-            .cauchy_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Gent {
+            bulk_modulus,
+            shear_modulus,
+            extensibility,
+        }
+        .cauchy_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -34,18 +33,17 @@ unsafe extern "C" fn gent_cauchy_tangent_stiffness(
     shear_modulus: Scalar,
     extensibility: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Gent {
-                bulk_modulus,
-                shear_modulus,
-                extensibility,
-            }
-            .cauchy_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Gent {
+            bulk_modulus,
+            shear_modulus,
+            extensibility,
+        }
+        .cauchy_tangent_stiffness(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -55,18 +53,17 @@ unsafe extern "C" fn gent_first_piola_kirchhoff_stress(
     shear_modulus: Scalar,
     extensibility: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Gent {
-                bulk_modulus,
-                shear_modulus,
-                extensibility,
-            }
-            .first_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Gent {
+            bulk_modulus,
+            shear_modulus,
+            extensibility,
+        }
+        .first_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -76,20 +73,19 @@ unsafe extern "C" fn gent_first_piola_kirchhoff_tangent_stiffness(
     shear_modulus: Scalar,
     extensibility: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Gent {
-                bulk_modulus,
-                shear_modulus,
-                extensibility,
-            }
-            .first_piola_kirchhoff_tangent_stiffness(
-                &from_raw_parts(deformation_gradient, 9)[0].into(),
-            )
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Gent {
+            bulk_modulus,
+            shear_modulus,
+            extensibility,
+        }
+        .first_piola_kirchhoff_tangent_stiffness(
+            &from_raw_parts(deformation_gradient, 9)[0].into(),
+        )
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -99,18 +95,17 @@ unsafe extern "C" fn gent_second_piola_kirchhoff_stress(
     shear_modulus: Scalar,
     extensibility: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[Scalar; 3]; 3] {
+    output: *mut [[Scalar; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Gent {
-                bulk_modulus,
-                shear_modulus,
-                extensibility,
-            }
-            .second_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Gent {
+            bulk_modulus,
+            shear_modulus,
+            extensibility,
+        }
+        .second_piola_kirchhoff_stress(&from_raw_parts(deformation_gradient, 9)[0].into())
+        .unwrap()
+        .as_array();
     }
 }
 
@@ -120,20 +115,19 @@ unsafe extern "C" fn gent_second_piola_kirchhoff_tangent_stiffness(
     shear_modulus: Scalar,
     extensibility: Scalar,
     deformation_gradient: *const [[Scalar; 3]; 3],
-) -> *const [[[[Scalar; 3]; 3]; 3]; 3] {
+    output: *mut [[[[Scalar; 3]; 3]; 3]; 3],
+) {
     unsafe {
-        Box::into_raw(Box::new(
-            Gent {
-                bulk_modulus,
-                shear_modulus,
-                extensibility,
-            }
-            .second_piola_kirchhoff_tangent_stiffness(
-                &from_raw_parts(deformation_gradient, 9)[0].into(),
-            )
-            .unwrap()
-            .as_array(),
-        ))
+        *output = Gent {
+            bulk_modulus,
+            shear_modulus,
+            extensibility,
+        }
+        .second_piola_kirchhoff_tangent_stiffness(
+            &from_raw_parts(deformation_gradient, 9)[0].into(),
+        )
+        .unwrap()
+        .as_array();
     }
 }
 
