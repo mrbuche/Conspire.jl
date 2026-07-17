@@ -1,5 +1,10 @@
 # Hyperelastic
 
+```@eval
+using Markdown
+Markdown.parse_file(joinpath("..", "..", "..", "..", "src", "constitutive", "solid", "hyperelastic", "doc.md"))
+```
+
 * [Arruda-Boyce](hyperelastic/arruda_boyce.md) -- The Arruda-Boyce hyperelastic constitutive model.
 * [Fung](hyperelastic/fung.md) -- The Fung hyperelastic constitutive model.
 * [Gent](hyperelastic/gent.md) -- The Gent hyperelastic constitutive model.

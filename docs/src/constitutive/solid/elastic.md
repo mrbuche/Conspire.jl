@@ -1,5 +1,10 @@
 # Elastic
 
+```@eval
+using Markdown
+Markdown.parse_file(joinpath("..", "..", "..", "..", "src", "constitutive", "solid", "elastic", "doc.md"))
+```
+
 * [Almansi-Hamel](elastic/almansi_hamel.md) -- The Almansi-Hamel elastic constitutive model.
 * [Hencky (elastic)](elastic/hencky_elastic.md) -- The Hencky elastic constitutive model.
 * [Saint Venant-Kirchhoff (elastic)](elastic/saint_venant_kirchhoff_elastic.md) -- The Saint Venant-Kirchhoff elastic constitutive model.
