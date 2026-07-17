@@ -5,6 +5,7 @@ makedocs(
     modules = [Conspire],
     pages = [
         "Home" => "index.md",
+        "Mathematics" => "math.md",
         "Constitutive" => "constitutive.md",
         "Index" => "genindex.md",
     ],

@@ -1,7 +1,7 @@
 name = "Conspire"
 uuid = "e166284d-f01f-4403-abd1-910b06ed061e"
 authors = ["Michael R. Buche <mrbuche@sandia.gov>"]
-version = "0.3.1"
+version = "0.4.0"
 
 [deps]
 DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
@@ -14,7 +14,7 @@ JET = "0"
 JuliaFormatter = "1"
 LinearAlgebra = "1"
 Test = "1"
-julia = "1"
+julia = "1.10"
 
 [extras]
 Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"

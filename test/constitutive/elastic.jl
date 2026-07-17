@@ -62,3 +62,13 @@ end
     almansi_hamel_model = AlmansiHamel(κ, μ)
     test_elastic(almansi_hamel_model)
 end
+
+@testset "Hencky (elastic) model" begin
+    hencky_elastic_model = HenckyElastic(κ, μ)
+    test_elastic(hencky_elastic_model)
+end
+
+@testset "Saint Venant-Kirchhoff (elastic) model" begin
+    saint_venant_kirchhoff_elastic_model = SaintVenantKirchhoffElastic(κ, μ)
+    test_elastic(saint_venant_kirchhoff_elastic_model)
+end

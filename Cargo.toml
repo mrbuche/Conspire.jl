@@ -11,10 +11,10 @@ publish = false
 version = "0.1.0"
 
 [build-dependencies]
-conspire = { version = "=0.6.0", features = ["doc", "fem"] }
+conspire = { version = "=0.7.1", features = ["doc", "fem"] }
 
 [dependencies]
-conspire = { version = "=0.6.0", features = ["doc", "fem"] }
+conspire = { version = "=0.7.1", features = ["doc", "fem"] }
 
 [lib]
 crate-type = ["cdylib"]

@@ -5,19 +5,29 @@ use std::{
 };
 
 use conspire::constitutive::solid::{
-    elastic::doc::almansi_hamel,
+    elastic::doc::{DOC as ELASTIC_DOC, almansi_hamel, hencky as hencky_elastic},
     hyperelastic::{
-        doc::arruda_boyce, doc::fung, doc::gent, doc::mooney_rivlin, doc::neo_hookean,
-        doc::saint_venant_kirchhoff,
+        doc::DOC as HYPERELASTIC_DOC, doc::arruda_boyce, doc::fung, doc::gent, doc::hencky,
+        doc::mooney_rivlin, doc::neo_hookean, doc::saint_venant_kirchhoff,
     },
 };
 
 fn main() -> Result<(), Error> {
+    let category_docs = [
+        ("constitutive/solid/elastic", ELASTIC_DOC),
+        ("constitutive/solid/hyperelastic", HYPERELASTIC_DOC),
+    ];
+    category_docs.iter().try_for_each(|(path, doc)| {
+        create_dir_all(Path::new(format!("src/{path}").as_str()))?;
+        write(Path::new(format!("src/{path}/doc.md").as_str()), doc)
+    })?;
     let models = [
         almansi_hamel(),
         arruda_boyce(),
         fung(),
         gent(),
+        hencky(),
+        hencky_elastic(),
         mooney_rivlin(),
         neo_hookean(),
         saint_venant_kirchhoff(),

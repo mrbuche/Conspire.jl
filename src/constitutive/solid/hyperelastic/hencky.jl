@@ -2,41 +2,39 @@ using DocStringExtensions
 
 using ....Conspire: PROJECT_ROOT
 
-const NEO_HOOKEAN_DOC = replace(
+const HENCKY_DOC = replace(
     read(
-        joinpath(PROJECT_ROOT, "src/constitutive/solid/hyperelastic/neo_hookean/doc.md"),
+        joinpath(PROJECT_ROOT, "src/constitutive/solid/hyperelastic/hencky/doc.md"),
         String,
     ),
     "\$\`" => "\`\`",
     "\`\$" => "\`\`",
 )
-const NEO_HOOKEAN_CAUCHY_STRESS =
-    read("src/constitutive/solid/hyperelastic/neo_hookean/cauchy_stress.md", String)
-const NEO_HOOKEAN_CAUCHY_TANGENT_STIFFNESS = read(
-    "src/constitutive/solid/hyperelastic/neo_hookean/cauchy_tangent_stiffness.md",
-    String,
-)
-const NEO_HOOKEAN_HELMHOLTZ_FREE_ENERGY_DENSITY = read(
-    "src/constitutive/solid/hyperelastic/neo_hookean/helmholtz_free_energy_density.md",
+const HENCKY_CAUCHY_STRESS =
+    read("src/constitutive/solid/hyperelastic/hencky/cauchy_stress.md", String)
+const HENCKY_CAUCHY_TANGENT_STIFFNESS =
+    read("src/constitutive/solid/hyperelastic/hencky/cauchy_tangent_stiffness.md", String)
+const HENCKY_HELMHOLTZ_FREE_ENERGY_DENSITY = read(
+    "src/constitutive/solid/hyperelastic/hencky/helmholtz_free_energy_density.md",
     String,
 )
 
 """
-$(NEO_HOOKEAN_DOC)
+$(HENCKY_DOC)
 """
-struct NeoHookean
+struct Hencky
     κ::Real
     μ::Real
 end
 
 """
 $(TYPEDSIGNATURES)
-$(NEO_HOOKEAN_CAUCHY_STRESS)
+$(HENCKY_CAUCHY_STRESS)
 """
-function cauchy_stress(model::NeoHookean, F)
+function cauchy_stress(model::Hencky, F)
     output = zeros(Float64, 3, 3)
     ccall(
-        (:neo_hookean_cauchy_stress, CONSPIRE_LIB),
+        (:hencky_cauchy_stress, CONSPIRE_LIB),
         Cvoid,
         (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
@@ -49,12 +47,12 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(NEO_HOOKEAN_CAUCHY_TANGENT_STIFFNESS)
+$(HENCKY_CAUCHY_TANGENT_STIFFNESS)
 """
-function cauchy_tangent_stiffness(model::NeoHookean, F)
+function cauchy_tangent_stiffness(model::Hencky, F)
     output = zeros(Float64, 3, 3, 3, 3)
     ccall(
-        (:neo_hookean_cauchy_tangent_stiffness, CONSPIRE_LIB),
+        (:hencky_cauchy_tangent_stiffness, CONSPIRE_LIB),
         Cvoid,
         (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
@@ -68,10 +66,10 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function first_piola_kirchhoff_stress(model::NeoHookean, F)
+function first_piola_kirchhoff_stress(model::Hencky, F)
     output = zeros(Float64, 3, 3)
     ccall(
-        (:neo_hookean_first_piola_kirchhoff_stress, CONSPIRE_LIB),
+        (:hencky_first_piola_kirchhoff_stress, CONSPIRE_LIB),
         Cvoid,
         (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
@@ -85,10 +83,10 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function first_piola_kirchhoff_tangent_stiffness(model::NeoHookean, F)
+function first_piola_kirchhoff_tangent_stiffness(model::Hencky, F)
     output = zeros(Float64, 3, 3, 3, 3)
     ccall(
-        (:neo_hookean_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
+        (:hencky_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Cvoid,
         (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
@@ -102,10 +100,10 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function second_piola_kirchhoff_stress(model::NeoHookean, F)
+function second_piola_kirchhoff_stress(model::Hencky, F)
     output = zeros(Float64, 3, 3)
     ccall(
-        (:neo_hookean_second_piola_kirchhoff_stress, CONSPIRE_LIB),
+        (:hencky_second_piola_kirchhoff_stress, CONSPIRE_LIB),
         Cvoid,
         (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
@@ -119,10 +117,10 @@ end
 """
 $(TYPEDSIGNATURES)
 """
-function second_piola_kirchhoff_tangent_stiffness(model::NeoHookean, F)
+function second_piola_kirchhoff_tangent_stiffness(model::Hencky, F)
     output = zeros(Float64, 3, 3, 3, 3)
     ccall(
-        (:neo_hookean_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
+        (:hencky_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
         Cvoid,
         (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
@@ -135,11 +133,11 @@ end
 
 """
 $(TYPEDSIGNATURES)
-$(NEO_HOOKEAN_HELMHOLTZ_FREE_ENERGY_DENSITY)
+$(HENCKY_HELMHOLTZ_FREE_ENERGY_DENSITY)
 """
-function helmholtz_free_energy_density(model::NeoHookean, F)
+function helmholtz_free_energy_density(model::Hencky, F)
     return ccall(
-        (:neo_hookean_helmholtz_free_energy_density, CONSPIRE_LIB),
+        (:hencky_helmholtz_free_energy_density, CONSPIRE_LIB),
         Float64,
         (Float64, Float64, Ptr{Float64}),
         model.κ,

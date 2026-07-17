@@ -38,60 +38,68 @@ end
 $(TYPEDSIGNATURES)
 """
 function cauchy_stress(model::SaintVenantKirchhoff, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3)
+    ccall(
         (:saint_venant_kirchhoff_cauchy_stress, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 9, own = false), (3, 3))
+    return output
 end
 
 """
 $(TYPEDSIGNATURES)
 """
 function cauchy_tangent_stiffness(model::SaintVenantKirchhoff, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3, 3, 3)
+    ccall(
         (:saint_venant_kirchhoff_cauchy_tangent_stiffness, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 81, own = false), (3, 3, 3, 3))
+    return output
 end
 
 """
 $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_stress(model::SaintVenantKirchhoff, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3)
+    ccall(
         (:saint_venant_kirchhoff_first_piola_kirchhoff_stress, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 9, own = false), (3, 3))
+    return output
 end
 
 """
 $(TYPEDSIGNATURES)
 """
 function first_piola_kirchhoff_tangent_stiffness(model::SaintVenantKirchhoff, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3, 3, 3)
+    ccall(
         (:saint_venant_kirchhoff_first_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 81, own = false), (3, 3, 3, 3))
+    return output
 end
 
 """
@@ -99,15 +107,17 @@ $(TYPEDSIGNATURES)
 $(SAINT_VENANT_KIRCHHOFF_SECOND_PIOLA_KIRCHHOFF_STRESS)
 """
 function second_piola_kirchhoff_stress(model::SaintVenantKirchhoff, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3)
+    ccall(
         (:saint_venant_kirchhoff_second_piola_kirchhoff_stress, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 9, own = false), (3, 3))
+    return output
 end
 
 """
@@ -115,15 +125,17 @@ $(TYPEDSIGNATURES)
 $(SAINT_VENANT_KIRCHHOFF_SECOND_PIOLA_KIRCHHOFF_TANGENT_STIFFNESS)
 """
 function second_piola_kirchhoff_tangent_stiffness(model::SaintVenantKirchhoff, F)
-    raw = ccall(
+    output = zeros(Float64, 3, 3, 3, 3)
+    ccall(
         (:saint_venant_kirchhoff_second_piola_kirchhoff_tangent_stiffness, CONSPIRE_LIB),
-        Ptr{Float64},
-        (Float64, Float64, Ptr{Float64}),
+        Cvoid,
+        (Float64, Float64, Ptr{Float64}, Ptr{Float64}),
         model.κ,
         model.μ,
         F,
+        output,
     )
-    return reshape(unsafe_wrap(Array{Float64}, raw, 81, own = false), (3, 3, 3, 3))
+    return output
 end
 
 """
