@@ -29,3 +29,51 @@ second_piola_kirchhoff_stress(::AlmansiHamel, ::Matrix)
 ```@docs
 second_piola_kirchhoff_tangent_stiffness(::AlmansiHamel, ::Matrix)
 ```
+
+```@docs
+cauchy_stress(::HenckyElastic, ::Matrix)
+```
+
+```@docs
+cauchy_tangent_stiffness(::HenckyElastic, ::Matrix)
+```
+
+```@docs
+first_piola_kirchhoff_stress(::HenckyElastic, ::Matrix)
+```
+
+```@docs
+first_piola_kirchhoff_tangent_stiffness(::HenckyElastic, ::Matrix)
+```
+
+```@docs
+second_piola_kirchhoff_stress(::HenckyElastic, ::Matrix)
+```
+
+```@docs
+second_piola_kirchhoff_tangent_stiffness(::HenckyElastic, ::Matrix)
+```
+
+```@docs
+cauchy_stress(::SaintVenantKirchhoffElastic, ::Matrix)
+```
+
+```@docs
+cauchy_tangent_stiffness(::SaintVenantKirchhoffElastic, ::Matrix)
+```
+
+```@docs
+first_piola_kirchhoff_stress(::SaintVenantKirchhoffElastic, ::Matrix)
+```
+
+```@docs
+first_piola_kirchhoff_tangent_stiffness(::SaintVenantKirchhoffElastic, ::Matrix)
+```
+
+```@docs
+second_piola_kirchhoff_stress(::SaintVenantKirchhoffElastic, ::Matrix)
+```
+
+```@docs
+second_piola_kirchhoff_tangent_stiffness(::SaintVenantKirchhoffElastic, ::Matrix)
+```
