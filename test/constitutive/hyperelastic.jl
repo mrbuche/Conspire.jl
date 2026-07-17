@@ -53,6 +53,12 @@ end
     test_hyperelastic(fung_model)
 end
 
+@testset "Hencky model" begin
+    hencky_model = Hencky(κ, μ)
+    test_elastic(hencky_model)
+    test_hyperelastic(hencky_model)
+end
+
 @testset "Mooney-Rivlin model" begin
     mooney_rivlin_model = MooneyRivlin(κ, μ, μₘ)
     test_elastic(mooney_rivlin_model)

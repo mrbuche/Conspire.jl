@@ -14,6 +14,6 @@ export first_piola_kirchhoff_stress, first_piola_kirchhoff_tangent_stiffness
 export second_piola_kirchhoff_stress, second_piola_kirchhoff_tangent_stiffness
 export helmholtz_free_energy_density
 export AlmansiHamel
-export ArrudaBoyce, Fung, Gent, MooneyRivlin, NeoHookean, SaintVenantKirchhoff
+export ArrudaBoyce, Fung, Gent, Hencky, MooneyRivlin, NeoHookean, SaintVenantKirchhoff
 
 end

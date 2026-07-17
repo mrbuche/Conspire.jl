@@ -7,8 +7,8 @@ use std::{
 use conspire::constitutive::solid::{
     elastic::doc::almansi_hamel,
     hyperelastic::{
-        doc::arruda_boyce, doc::fung, doc::gent, doc::mooney_rivlin, doc::neo_hookean,
-        doc::saint_venant_kirchhoff,
+        doc::arruda_boyce, doc::fung, doc::gent, doc::hencky, doc::mooney_rivlin,
+        doc::neo_hookean, doc::saint_venant_kirchhoff,
     },
 };
 
@@ -18,6 +18,7 @@ fn main() -> Result<(), Error> {
         arruda_boyce(),
         fung(),
         gent(),
+        hencky(),
         mooney_rivlin(),
         neo_hookean(),
         saint_venant_kirchhoff(),
