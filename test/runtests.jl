@@ -6,7 +6,7 @@ include("constitutive.jl")
 
 Aqua.test_all(Conspire)
 
-println("\nJET:\n", report_package("Conspire"; toplevel_logger = nothing))
+println("\nJET:\n", report_package(Conspire))
 
 if !format("../", overwrite = false, verbose = true)
     error("File(s) not properly formatted.")
